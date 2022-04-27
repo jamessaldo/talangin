@@ -7,20 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E65E8148281968320016156D /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65E8147281968320016156D /* TransactionCell.swift */; };
+		E65E814A28198D4B0016156D /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65E814928198D4B0016156D /* TransactionModel.swift */; };
 		E6D3093C281920ED00A20A5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D3093B281920ED00A20A5E /* AppDelegate.swift */; };
 		E6D3093E281920ED00A20A5E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D3093D281920ED00A20A5E /* SceneDelegate.swift */; };
-		E6D30940281920ED00A20A5E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D3093F281920ED00A20A5E /* ViewController.swift */; };
+		E6D30940281920ED00A20A5E /* TransactionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D3093F281920ED00A20A5E /* TransactionController.swift */; };
 		E6D30943281920ED00A20A5E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6D30941281920ED00A20A5E /* Main.storyboard */; };
 		E6D30945281920F100A20A5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6D30944281920F100A20A5E /* Assets.xcassets */; };
 		E6D30948281920F100A20A5E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6D30946281920F100A20A5E /* LaunchScreen.storyboard */; };
 		E6D30953281920F200A20A5E /* TalanginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D30952281920F200A20A5E /* TalanginTests.swift */; };
 		E6D3095D281920F200A20A5E /* TalanginUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D3095C281920F200A20A5E /* TalanginUITests.swift */; };
 		E6D3095F281920F200A20A5E /* TalanginUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D3095E281920F200A20A5E /* TalanginUITestsLaunchTests.swift */; };
-		E6D309702819268700A20A5E /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D3096B2819268700A20A5E /* HistoryViewController.swift */; };
-		E6D309712819268700A20A5E /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D3096C2819268700A20A5E /* HistoryModel.swift */; };
+		E6D309702819268700A20A5E /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D3096B2819268700A20A5E /* ContactViewController.swift */; };
+		E6D309712819268700A20A5E /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D3096C2819268700A20A5E /* ContactModel.swift */; };
 		E6D309722819268700A20A5E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D3096D2819268700A20A5E /* DetailViewController.swift */; };
 		E6D309732819268700A20A5E /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D3096E2819268700A20A5E /* UIButton+Extension.swift */; };
-		E6D309742819268700A20A5E /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D3096F2819268700A20A5E /* HistoryCell.swift */; };
+		E6D309742819268700A20A5E /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D3096F2819268700A20A5E /* ContactCell.swift */; };
+		E6D3098428193FD400A20A5E /* Transactions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6D3098228193FD400A20A5E /* Transactions.storyboard */; };
+		E6D3098628193FED00A20A5E /* Contacts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6D3098528193FED00A20A5E /* Contacts.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,10 +45,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E65E8147281968320016156D /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
+		E65E814928198D4B0016156D /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
 		E6D30938281920ED00A20A5E /* Talangin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Talangin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6D3093B281920ED00A20A5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6D3093D281920ED00A20A5E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E6D3093F281920ED00A20A5E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E6D3093F281920ED00A20A5E /* TransactionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionController.swift; sourceTree = "<group>"; };
 		E6D30942281920ED00A20A5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E6D30944281920F100A20A5E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E6D30947281920F100A20A5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,11 +60,13 @@
 		E6D30958281920F200A20A5E /* TalanginUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TalanginUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6D3095C281920F200A20A5E /* TalanginUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalanginUITests.swift; sourceTree = "<group>"; };
 		E6D3095E281920F200A20A5E /* TalanginUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalanginUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		E6D3096B2819268700A20A5E /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
-		E6D3096C2819268700A20A5E /* HistoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
+		E6D3096B2819268700A20A5E /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
+		E6D3096C2819268700A20A5E /* ContactModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
 		E6D3096D2819268700A20A5E /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		E6D3096E2819268700A20A5E /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
-		E6D3096F2819268700A20A5E /* HistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
+		E6D3096F2819268700A20A5E /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		E6D3098328193FD400A20A5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Talangin/Base.lproj/Transactions.storyboard; sourceTree = "<group>"; };
+		E6D3098528193FED00A20A5E /* Contacts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Contacts.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,14 +117,11 @@
 		E6D3093A281920ED00A20A5E /* Talangin */ = {
 			isa = PBXGroup;
 			children = (
+				E6D309892819402B00A20A5E /* Contact */,
+				E6D309882819401200A20A5E /* Transaction */,
 				E6D3093B281920ED00A20A5E /* AppDelegate.swift */,
 				E6D3093D281920ED00A20A5E /* SceneDelegate.swift */,
-				E6D3096D2819268700A20A5E /* DetailViewController.swift */,
-				E6D3096F2819268700A20A5E /* HistoryCell.swift */,
-				E6D3096C2819268700A20A5E /* HistoryModel.swift */,
-				E6D3096B2819268700A20A5E /* HistoryViewController.swift */,
 				E6D3096E2819268700A20A5E /* UIButton+Extension.swift */,
-				E6D3093F281920ED00A20A5E /* ViewController.swift */,
 				E6D30941281920ED00A20A5E /* Main.storyboard */,
 				E6D30944281920F100A20A5E /* Assets.xcassets */,
 				E6D30946281920F100A20A5E /* LaunchScreen.storyboard */,
@@ -140,6 +145,29 @@
 				E6D3095E281920F200A20A5E /* TalanginUITestsLaunchTests.swift */,
 			);
 			path = TalanginUITests;
+			sourceTree = "<group>";
+		};
+		E6D309882819401200A20A5E /* Transaction */ = {
+			isa = PBXGroup;
+			children = (
+				E6D3096D2819268700A20A5E /* DetailViewController.swift */,
+				E6D3098228193FD400A20A5E /* Transactions.storyboard */,
+				E6D3093F281920ED00A20A5E /* TransactionController.swift */,
+				E65E8147281968320016156D /* TransactionCell.swift */,
+				E65E814928198D4B0016156D /* TransactionModel.swift */,
+			);
+			path = Transaction;
+			sourceTree = "<group>";
+		};
+		E6D309892819402B00A20A5E /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				E6D3096F2819268700A20A5E /* ContactCell.swift */,
+				E6D3096C2819268700A20A5E /* ContactModel.swift */,
+				E6D3096B2819268700A20A5E /* ContactViewController.swift */,
+				E6D3098528193FED00A20A5E /* Contacts.storyboard */,
+			);
+			path = Contact;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,6 +275,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6D30948281920F100A20A5E /* LaunchScreen.storyboard in Resources */,
+				E6D3098428193FD400A20A5E /* Transactions.storyboard in Resources */,
+				E6D3098628193FED00A20A5E /* Contacts.storyboard in Resources */,
 				E6D30945281920F100A20A5E /* Assets.xcassets in Resources */,
 				E6D30943281920ED00A20A5E /* Main.storyboard in Resources */,
 			);
@@ -273,13 +303,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6D30940281920ED00A20A5E /* ViewController.swift in Sources */,
-				E6D309712819268700A20A5E /* HistoryModel.swift in Sources */,
+				E65E814A28198D4B0016156D /* TransactionModel.swift in Sources */,
+				E6D30940281920ED00A20A5E /* TransactionController.swift in Sources */,
+				E6D309712819268700A20A5E /* ContactModel.swift in Sources */,
+				E65E8148281968320016156D /* TransactionCell.swift in Sources */,
 				E6D3093C281920ED00A20A5E /* AppDelegate.swift in Sources */,
 				E6D309722819268700A20A5E /* DetailViewController.swift in Sources */,
 				E6D3093E281920ED00A20A5E /* SceneDelegate.swift in Sources */,
-				E6D309702819268700A20A5E /* HistoryViewController.swift in Sources */,
-				E6D309742819268700A20A5E /* HistoryCell.swift in Sources */,
+				E6D309702819268700A20A5E /* ContactViewController.swift in Sources */,
+				E6D309742819268700A20A5E /* ContactCell.swift in Sources */,
 				E6D309732819268700A20A5E /* UIButton+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,6 +363,14 @@
 				E6D30947281920F100A20A5E /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		E6D3098228193FD400A20A5E /* Transactions.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E6D3098328193FD400A20A5E /* Base */,
+			);
+			name = Transactions.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

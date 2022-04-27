@@ -8,6 +8,10 @@
 import UIKit
 
 extension UIButton {
+    func drawACircle() {
+        self.layer.masksToBounds = true
+        self.layer.cornerRadius = self.layer.frame.width/2
+    }
     
     func drawARoundedCorner() {
         self.layer.cornerRadius = 5.0

@@ -1,16 +1,15 @@
 //
-//  HistoryCell.swift
-//  My Diary
+//  DetailCell.swift
+//  Talangin
 //
-//  Created by zein rezky chandra on 06/04/22.
+//  Created by zy on 27/04/22.
 //
 
 import UIKit
 
-class HistoryCell: UITableViewCell {
-
-    @IBOutlet weak var historyTitle: UILabel!
+class TransactionCell: UITableViewCell {
     
+    @IBOutlet weak var transactionTitle: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
