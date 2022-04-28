@@ -30,21 +30,21 @@ class DetailViewController: UIViewController, UITextViewDelegate {
     }
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var name: UILabel!
-    
+    @IBOutlet weak var totalAmount: UILabel!
     
     // MARK: - Object initialization & Optional
     var dataToBeUpdate: TransactionModel?
     var isUpdated: Bool? = false
+    
     // MARK: - delegate object initialization
     weak var delegate: DetailViewControllerDelegate?
-    private let colorName = ["RED VIEW","BLUE VIEW","YELLOW VIEW","GREEN VIEW","GRAY VIEW","WHITE VIEW","BROWN VIEW"]
-    private let colors = [UIColor.red,UIColor.blue,UIColor.yellow,UIColor.green,UIColor.gray,UIColor.white,UIColor.brown]
-    private var viewsPerCell: [Int] = []
+    
     // MARK: - View Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         if let data = dataToBeUpdate {
             name.text = data.title
             date.text = DateFormatter.mediumDateFormatter.string(from: data.date)
+            totalAmount.text = "Rp. \(Int(data.amount))"
         }
     }
     
@@ -77,7 +77,7 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = (tableView.dequeueReusableCell(withIdentifier: "detailViewCellID", for: indexPath) as? DetailViewCell)!
         if let data = self.dataToBeUpdate {
-            cell.personName.text = data.personsOrders[indexPath.row].person.name
+            cell.personName.text = "\(data.personsOrders[indexPath.row].person.name)'s total"
             cell.totalAmount.text = "Rp. \(Int(data.personsOrders[indexPath.row].total))"
             
             //cleaning stackView to reuse it
@@ -93,6 +93,13 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
                 nib.name.text = order.name
                 nib.quantity.text = "x\(order.quantity)"
                 nib.amount.text = "Rp. \(Int(order.amount))"
+                
+                let border = UIView()
+                border.backgroundColor = .gray
+                    border.autoresizingMask = [.flexibleWidth, .flexibleBottomMargin]
+                    border.frame = CGRect(x: 20, y: 0, width: 374, height: 1)
+                cell.stackView.addSubview(border)
+                
                 cell.stackView.addArrangedSubview(nib)
             }
         }
