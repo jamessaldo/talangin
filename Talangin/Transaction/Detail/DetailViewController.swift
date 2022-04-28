@@ -44,7 +44,9 @@ class DetailViewController: UIViewController, UITextViewDelegate {
         if let data = dataToBeUpdate {
             name.text = data.title
             date.text = DateFormatter.mediumDateFormatter.string(from: data.date)
-            totalAmount.text = "Rp. \(Int(data.amount))"
+            if let amount = NumberFormatter.rupiahFormatter.string(from:Int(data.amount) as NSNumber) {
+                totalAmount.text = "Rp. \(amount)"
+            }
         }
     }
     
@@ -78,7 +80,9 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = (tableView.dequeueReusableCell(withIdentifier: "detailViewCellID", for: indexPath) as? DetailViewCell)!
         if let data = self.dataToBeUpdate {
             cell.personName.text = "\(data.personsOrders[indexPath.row].person.name)'s total"
-            cell.totalAmount.text = "Rp. \(Int(data.personsOrders[indexPath.row].total))"
+            if let amount = NumberFormatter.rupiahFormatter.string(from:Int(data.personsOrders[indexPath.row].total) as NSNumber) {
+                cell.totalAmount.text = "Rp. \(amount)"
+            }
             
             //cleaning stackView to reuse it
             cell.stackView.subviews.forEach { (view) in
@@ -92,7 +96,10 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
                 let nib = DetailTransactionView()
                 nib.name.text = order.name
                 nib.quantity.text = "x\(order.quantity)"
-                nib.amount.text = "Rp. \(Int(order.amount))"
+                if let amount = NumberFormatter.rupiahFormatter.string(from:Int(order.amount) as NSNumber) {
+                    nib.amount.text = "Rp. \(amount)"
+                }
+                
                 
                 let border = UIView()
                 border.backgroundColor = .gray

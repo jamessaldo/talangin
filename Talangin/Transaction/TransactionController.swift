@@ -90,7 +90,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         cell.transactionTitle.text = transactionLists[indexPath.row].title
         cell.personCount.text = "\(transactionLists[indexPath.row].personsOrders.count) Persons"
         cell.date.text = DateFormatter.mediumDateFormatter.string(from: transactionLists[indexPath.row].date)
-        cell.totalAmount.text = "Rp. \(Int(transactionLists[indexPath.row].amount))"
+        if let amount = NumberFormatter.rupiahFormatter.string(from:Int(transactionLists[indexPath.row].amount) as NSNumber) {
+            cell.totalAmount.text = "Rp. \(amount)"
+        }
+        
         cell.selectionStyle = .none
         return cell
     }
@@ -112,6 +115,16 @@ extension DateFormatter {
         df.timeStyle = .none
         df.dateFormat = "dd/MM/YY"
         return df
+    }()
+}
+
+extension NumberFormatter {
+    static let rupiahFormatter: NumberFormatter = {
+        let nf = NumberFormatter()
+        nf.locale = Locale(identifier: "id_ID")
+        nf.groupingSeparator = ","
+        nf.numberStyle = .decimal
+        return nf
     }()
 }
 
