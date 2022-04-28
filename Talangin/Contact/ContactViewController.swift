@@ -32,6 +32,7 @@ extension ContactViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = (tableView.dequeueReusableCell(withIdentifier: "contactCellID", for: indexPath) as? ContactCell)!
         cell.contactName.text = contactLists[indexPath.row].name
+        cell.selectionStyle = .none
         return cell
     }
     

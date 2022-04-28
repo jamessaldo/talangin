@@ -1,5 +1,5 @@
 //
-//  TransactionCell.swift
+//  DetailViewCell.swift
 //  Talangin
 //
 //  Created by zy on 27/04/22.
@@ -7,12 +7,13 @@
 
 import UIKit
 
-class TransactionCell: UITableViewCell {
+class DetailViewCell: UITableViewCell {
     
-    @IBOutlet weak var transactionTitle: UILabel!
-    @IBOutlet weak var personCount: UILabel!
-    @IBOutlet weak var date: UILabel!
+    
+    @IBOutlet weak var personName: UILabel!
+    @IBOutlet weak var name: UILabel!
     @IBOutlet weak var totalAmount: UILabel!
+    @IBOutlet weak var stackView: UIStackView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -19,15 +19,23 @@ class ViewController: UIViewController, DetailViewControllerDelegate {
     }
     
     // MARK: - Object initialization & Optional
-    var contactLists: [ContactModel] = [ContactModel(name: "Ghozy Ghulamul Afif", email: "ghozyghlmlaff@gmail.com"),
-                                        ContactModel(name: "Rizky Febian", email: "rizkysr19@gmail.com"),
-                                        ContactModel(name: "James Saldo", email: "jamessaldo19@gmail.com"),
-                                        ContactModel(name: "Si Ipul", email: "mayarrezeki@gmail.com"),
-                                        ContactModel(name: "Si Upil", email: "mayartestprod@gmail.com")]
-    var selectedRow: ContactModel?
+    var transactionLists: [TransactionModel] = [
+        TransactionModel(title: "Bukber BSD", amount: 200000, date: Date(), personsOrders: [
+            PersonsOrdersModel(person: ContactModel(name: "Ghozy Ghulamul Afif", email: "ghozyghlmlaff@gmail.com"), total: 100000, orders: [OrderModel(name: "Ramen Reguler Ikkudo Ichi", quantity: 1, price: 70000, amount: 70000),OrderModel(name: "Josu Ikkudo Ichi", quantity: 1, price: 30000, amount: 30000)]),
+            PersonsOrdersModel(person: ContactModel(name: "Rizky Febian", email: "rizkysr19@gmail.com"), total: 100000, orders: [OrderModel(name: "Ramen Reguler Ikkudo Ichi", quantity: 1, price: 70000, amount: 70000),OrderModel(name: "Josu Ikkudo Ichi", quantity: 1, price: 30000, amount: 30000)])
+            ],
+            orders: [
+                OrderModel(name: "Ramen Reguler Ikkudo Ichi", quantity: 2, price: 70000, amount: 140000),
+                OrderModel(name: "Josu Ikkudo Ichi", quantity: 2, price: 30000, amount: 60000)
+        ])
+    ]
+    var selectedRow: TransactionModel?
+    
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        let nib = UINib(nibName: "TransactionCell", bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: "transactionCellID")
     }
     
     // MARK: - Controls
@@ -54,8 +62,7 @@ class ViewController: UIViewController, DetailViewControllerDelegate {
             let detailVC = segue.destination as? DetailViewController
             // since we already subscribe the delegate from second page, we need to connect it to here
             if let data = selectedRow {
-                print(data.name)
-                detailVC?.dataToBeUpdate = data.name
+                detailVC?.dataToBeUpdate = data
                 detailVC?.isUpdated = true
             }
             detailVC?.delegate = self
@@ -75,22 +82,36 @@ class ViewController: UIViewController, DetailViewControllerDelegate {
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contactLists.count
+        return transactionLists.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = (tableView.dequeueReusableCell(withIdentifier: "transactionCellID", for: indexPath) as? TransactionCell)!
-        cell.transactionTitle.text = contactLists[indexPath.row].name
+        cell.transactionTitle.text = transactionLists[indexPath.row].title
+        cell.personCount.text = "\(transactionLists[indexPath.row].personsOrders.count) Persons"
+        cell.date.text = DateFormatter.mediumDateFormatter.string(from: transactionLists[indexPath.row].date)
+        cell.totalAmount.text = "Rp. \(Int(transactionLists[indexPath.row].amount))"
+        cell.selectionStyle = .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedRow = contactLists[indexPath.row]
+        selectedRow = transactionLists[indexPath.row]
         displayDetail(isDisplayDetail: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 90
     }
+}
+
+extension DateFormatter {
+    static let mediumDateFormatter: DateFormatter = {
+        let df = DateFormatter()
+        df.dateStyle = .medium
+        df.timeStyle = .none
+        df.dateFormat = "dd/MM/YY"
+        return df
+    }()
 }
 
