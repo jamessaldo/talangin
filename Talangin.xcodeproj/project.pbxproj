@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E647111A281BA0200058E649 /* OrderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6471119281BA0200058E649 /* OrderViewCell.xib */; };
+		E6471120281BBAAB0058E649 /* NewOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E647111F281BBAAB0058E649 /* NewOrderView.swift */; };
+		E6471123281BCFE10058E649 /* NewTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6471121281BCFE10058E649 /* NewTransactionView.swift */; };
+		E6471124281BCFE10058E649 /* NewTransactionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6471122281BCFE10058E649 /* NewTransactionView.xib */; };
 		E65E814A28198D4B0016156D /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65E814928198D4B0016156D /* TransactionModel.swift */; };
 		E6A8AEAE281A8A71004AD696 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A8AEAD281A8A71004AD696 /* TransactionCell.swift */; };
 		E6A8AEB2281A8B46004AD696 /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6A8AEB1281A8B46004AD696 /* TransactionCell.xib */; };
@@ -50,6 +54,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E6471119281BA0200058E649 /* OrderViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderViewCell.xib; sourceTree = "<group>"; };
+		E647111F281BBAAB0058E649 /* NewOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrderView.swift; sourceTree = "<group>"; };
+		E6471121281BCFE10058E649 /* NewTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransactionView.swift; sourceTree = "<group>"; };
+		E6471122281BCFE10058E649 /* NewTransactionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewTransactionView.xib; sourceTree = "<group>"; };
 		E65E814928198D4B0016156D /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
 		E6A8AEAD281A8A71004AD696 /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		E6A8AEB1281A8B46004AD696 /* TransactionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
@@ -112,6 +120,10 @@
 				E6A8AEB9281AA338004AD696 /* DetailViewCell.swift */,
 				E6A8AEC0281B074F004AD696 /* DetailTransactionView.xib */,
 				E6A8AEB7281AA07D004AD696 /* DetailViewCell.xib */,
+				E6471119281BA0200058E649 /* OrderViewCell.xib */,
+				E647111F281BBAAB0058E649 /* NewOrderView.swift */,
+				E6471121281BCFE10058E649 /* NewTransactionView.swift */,
+				E6471122281BCFE10058E649 /* NewTransactionView.xib */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -298,10 +310,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6D30948281920F100A20A5E /* LaunchScreen.storyboard in Resources */,
+				E647111A281BA0200058E649 /* OrderViewCell.xib in Resources */,
 				E6A8AEB8281AA07D004AD696 /* DetailViewCell.xib in Resources */,
 				E6D3098428193FD400A20A5E /* Transactions.storyboard in Resources */,
 				E6A8AEB2281A8B46004AD696 /* TransactionCell.xib in Resources */,
 				E6A8AEC2281B074F004AD696 /* DetailTransactionView.xib in Resources */,
+				E6471124281BCFE10058E649 /* NewTransactionView.xib in Resources */,
 				E6D3098628193FED00A20A5E /* Contacts.storyboard in Resources */,
 				E6D30945281920F100A20A5E /* Assets.xcassets in Resources */,
 				E6D30943281920ED00A20A5E /* Main.storyboard in Resources */,
@@ -329,9 +343,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6471123281BCFE10058E649 /* NewTransactionView.swift in Sources */,
 				E65E814A28198D4B0016156D /* TransactionModel.swift in Sources */,
 				E6D30940281920ED00A20A5E /* TransactionController.swift in Sources */,
 				E6D309712819268700A20A5E /* ContactModel.swift in Sources */,
+				E6471120281BBAAB0058E649 /* NewOrderView.swift in Sources */,
 				E6A8AEBA281AA338004AD696 /* DetailViewCell.swift in Sources */,
 				E6D3093C281920ED00A20A5E /* AppDelegate.swift in Sources */,
 				E6D309722819268700A20A5E /* DetailViewController.swift in Sources */,

@@ -20,14 +20,57 @@ class ViewController: UIViewController, DetailViewControllerDelegate {
     
     // MARK: - Object initialization & Optional
     var transactionLists: [TransactionModel] = [
-        TransactionModel(title: "Bukber BSD", amount: 200000, date: Date(), personsOrders: [
-            PersonsOrdersModel(person: ContactModel(name: "Ghozy Ghulamul Afif", email: "ghozyghlmlaff@gmail.com"), total: 100000, orders: [OrderModel(name: "Ramen Reguler Ikkudo Ichi", quantity: 1, price: 70000, amount: 70000),OrderModel(name: "Josu Ikkudo Ichi", quantity: 1, price: 30000, amount: 30000)]),
-            PersonsOrdersModel(person: ContactModel(name: "Rizky Febian", email: "rizkysr19@gmail.com"), total: 100000, orders: [OrderModel(name: "Ramen Reguler Ikkudo Ichi", quantity: 1, price: 70000, amount: 70000),OrderModel(name: "Josu Ikkudo Ichi", quantity: 1, price: 30000, amount: 30000)])
-            ],
+        TransactionModel(
+            title: "Bukber BSD",
+            amount: 200000,
+            date: Date(),
+            personsOrders: [
+                PersonsOrdersModel(
+                    person: ContactModel(
+                        name: "Ghozy Ghulamul Afif",
+                        email: "ghozyghlmlaff@gmail.com"),
+                    total: 100000,
+                    orders: [
+                        OrderModel(
+                            name: "Ramen Reguler Ikkudo Ichi",
+                            quantity: 1,
+                            price: 70000,
+                            amount: 70000),
+                        OrderModel(
+                            name: "Josu Ikkudo Ichi",
+                            quantity: 1,
+                            price: 30000,
+                            amount: 30000)
+                    ]),
+                PersonsOrdersModel(
+                    person: ContactModel(
+                        name: "Rizky Febian",
+                        email: "rizkysr19@gmail.com"),
+                    total: 100000,
+                    orders: [
+                        OrderModel(
+                            name: "Ramen Reguler Ikkudo Ichi",
+                            quantity: 1,
+                            price: 70000,
+                            amount: 70000),
+                        OrderModel(
+                            name: "Josu Ikkudo Ichi",
+                            quantity: 1,
+                            price: 30000,
+                            amount: 30000)
+                    ])],
             orders: [
-                OrderModel(name: "Ramen Reguler Ikkudo Ichi", quantity: 2, price: 70000, amount: 140000),
-                OrderModel(name: "Josu Ikkudo Ichi", quantity: 2, price: 30000, amount: 60000)
-        ])
+                OrderModel(
+                    name: "Ramen Reguler Ikkudo Ichi",
+                    quantity: 2,
+                    price: 70000,
+                    amount: 140000),
+                OrderModel(
+                    name: "Josu Ikkudo Ichi",
+                    quantity: 2,
+                    price: 30000,
+                    amount: 60000)
+            ])
     ]
     var selectedRow: TransactionModel?
     
@@ -43,20 +86,18 @@ class ViewController: UIViewController, DetailViewControllerDelegate {
     /* Here we know that every UI element that act as controls has an action that can be define directly without Outlet connection needed */
     @IBAction func floatingButtonAction(_ sender: UIButton) {
         selectedRow = nil
-        displayDetail(isDisplayDetail: true)
+        displayDetail(isDisplayDetail: true, identifier: "newTransaction")
     }
     
     // MARK: - Function
     
-    func displayDetail(isDisplayDetail: Bool) {
+    func displayDetail(isDisplayDetail: Bool, identifier: String) {
         if isDisplayDetail {
-            self.performSegue(withIdentifier: "detailTransaction", sender: self)
+            self.performSegue(withIdentifier: identifier, sender: self)
         }
     }
     
     // MARK: - Segue
-    
-    // Now we want to sent the story value to detail page and display it there, so we need this method in order to do that
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailTransaction" {
             let detailVC = segue.destination as? DetailViewController
@@ -67,12 +108,15 @@ class ViewController: UIViewController, DetailViewControllerDelegate {
             }
             detailVC?.delegate = self
         }
+        if segue.identifier == "newTransaction" {
+            let detailVC = segue.destination as? DetailViewController
+            // since we already subscribe the delegate from second page, we need to connect it to here
+            detailVC?.delegate = self
+        }
     }
     
     
     // MARK: - Our own delegate method
-    
-    // This displayAlert method available to use here, because we already subscribe the delegate from the detail page.
     func displayAlert(message: String?) {
         if let text = message {
             print(text)
@@ -100,7 +144,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedRow = transactionLists[indexPath.row]
-        displayDetail(isDisplayDetail: true)
+        displayDetail(isDisplayDetail: true, identifier: "detailTransaction")
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

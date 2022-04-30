@@ -17,6 +17,7 @@ class DetailViewController: UIViewController, UITextViewDelegate {
     
     // MARK: - Output element & Outlet connection
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var newTableView: UITableView!
     @IBOutlet weak var saveButton: UIButton! {
         didSet {
             saveButton.drawARoundedCorner()
@@ -31,10 +32,12 @@ class DetailViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var totalAmount: UILabel!
+    @IBOutlet weak var stackView: UIStackView!
     
     // MARK: - Object initialization & Optional
     var dataToBeUpdate: TransactionModel?
-    var isUpdated: Bool? = false
+    var newDataToBeSave: TransactionModel?
+    var isUpdated: Bool = false
     
     // MARK: - delegate object initialization
     weak var delegate: DetailViewControllerDelegate?
@@ -53,14 +56,21 @@ class DetailViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        let nib = UINib(nibName: "DetailViewCell", bundle: nil)
-        self.tableView.register(nib, forCellReuseIdentifier: "detailViewCellID")
+        if self.isUpdated {
+            let nib = UINib(nibName: "DetailViewCell", bundle: nil)
+            self.tableView.register(nib, forCellReuseIdentifier: "detailViewCellID")
+        } else {
+            let nib2 = UINib(nibName: "NewTransactionView", bundle: nil)
+            self.newTableView.register(nib2, forCellReuseIdentifier: "newTransactionViewCellID")
+        }
     }
     
     // MARK: - Controls action
     @IBAction func saveAction(_ sender: UIButton) {
         self.dismiss(animated: true) {
-            self.delegate?.displayAlert(message:"Uhuy")
+            if self.isUpdated {
+                self.delegate?.displayAlert(message:"Uhuy")
+            }
         }
     }
     @IBAction func cancelAction(_ sender: UIButton) {
@@ -73,43 +83,51 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
         if let data = self.dataToBeUpdate {
             return data.personsOrders.count
         }
-        return 0
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = (tableView.dequeueReusableCell(withIdentifier: "detailViewCellID", for: indexPath) as? DetailViewCell)!
-        if let data = self.dataToBeUpdate {
-            cell.personName.text = "\(data.personsOrders[indexPath.row].person.name)'s total"
-            if let amount = NumberFormatter.rupiahFormatter.string(from:Int(data.personsOrders[indexPath.row].total) as NSNumber) {
-                cell.totalAmount.text = "Rp. \(amount)"
-            }
-            
-            //cleaning stackView to reuse it
-            cell.stackView.subviews.forEach { (view) in
-                if !(view is UILabel) {
-                    view.removeFromSuperview()
-                }
-            }
-            
-            //Adding custom views to the stackView
-            for order in data.personsOrders[indexPath.row].orders {
-                let nib = DetailTransactionView()
-                nib.name.text = order.name
-                nib.quantity.text = "x\(order.quantity)"
-                if let amount = NumberFormatter.rupiahFormatter.string(from:Int(order.amount) as NSNumber) {
-                    nib.amount.text = "Rp. \(amount)"
+        if self.isUpdated {
+            let cell = (tableView.dequeueReusableCell(withIdentifier: "detailViewCellID", for: indexPath) as? DetailViewCell)!
+            if let data = self.dataToBeUpdate {
+                cell.personName.text = "\(data.personsOrders[indexPath.row].person.name)'s total"
+                if let amount = NumberFormatter.rupiahFormatter.string(from:Int(data.personsOrders[indexPath.row].total) as NSNumber) {
+                    cell.totalAmount.text = "Rp. \(amount)"
                 }
                 
+                //cleaning stackView to reuse it
+                cell.stackView.subviews.forEach { (view) in
+                    if !(view is UILabel) {
+                        view.removeFromSuperview()
+                    }
+                }
                 
-                let border = UIView()
-                border.backgroundColor = .gray
+                //Adding custom views to the stackView
+                for order in data.personsOrders[indexPath.row].orders {
+                    let nib = DetailTransactionView()
+                    nib.name.text = order.name
+                    nib.quantity.text = "x\(order.quantity)"
+                    if let amount = NumberFormatter.rupiahFormatter.string(from:Int(order.amount) as NSNumber) {
+                        nib.amount.text = "Rp. \(amount)"
+                    }
+                    
+                    
+                    let border = UIView()
+                    border.backgroundColor = .gray
                     border.autoresizingMask = [.flexibleWidth, .flexibleBottomMargin]
                     border.frame = CGRect(x: 20, y: 0, width: 374, height: 1)
-                cell.stackView.addSubview(border)
-                
-                cell.stackView.addArrangedSubview(nib)
+                    cell.stackView.addSubview(border)
+                    
+                    cell.stackView.addArrangedSubview(nib)
+                }
             }
+            cell.selectionStyle = .none
+            
+            return cell
         }
+        let cell = (tableView.dequeueReusableCell(withIdentifier: "newTransactionViewCellID", for: indexPath) as? NewTransactionView)!
+        let nib = OrderViewCell()
+        cell.stackView.addArrangedSubview(nib)
         cell.selectionStyle = .none
         
         return cell
