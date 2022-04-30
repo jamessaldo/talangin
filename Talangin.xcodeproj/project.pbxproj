@@ -112,6 +112,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E6118A6D281DB38600959A8B /* CreateTransaction */ = {
+			isa = PBXGroup;
+			children = (
+				E6471119281BA0200058E649 /* OrderViewCell.xib */,
+				E647111F281BBAAB0058E649 /* NewOrderView.swift */,
+				E6471121281BCFE10058E649 /* NewTransactionView.swift */,
+				E6471122281BCFE10058E649 /* NewTransactionView.xib */,
+			);
+			path = CreateTransaction;
+			sourceTree = "<group>";
+		};
 		E6A8AEC3281B0BD1004AD696 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,10 +131,6 @@
 				E6A8AEB9281AA338004AD696 /* DetailViewCell.swift */,
 				E6A8AEC0281B074F004AD696 /* DetailTransactionView.xib */,
 				E6A8AEB7281AA07D004AD696 /* DetailViewCell.xib */,
-				E6471119281BA0200058E649 /* OrderViewCell.xib */,
-				E647111F281BBAAB0058E649 /* NewOrderView.swift */,
-				E6471121281BCFE10058E649 /* NewTransactionView.swift */,
-				E6471122281BCFE10058E649 /* NewTransactionView.xib */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -184,6 +191,7 @@
 		E6D309882819401200A20A5E /* Transaction */ = {
 			isa = PBXGroup;
 			children = (
+				E6118A6D281DB38600959A8B /* CreateTransaction */,
 				E6A8AEC3281B0BD1004AD696 /* Detail */,
 				E6D3098228193FD400A20A5E /* Transactions.storyboard */,
 				E6D3093F281920ED00A20A5E /* TransactionController.swift */,
