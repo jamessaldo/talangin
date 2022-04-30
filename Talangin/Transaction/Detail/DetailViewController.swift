@@ -33,6 +33,7 @@ class DetailViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var totalAmount: UILabel!
     @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var eventTitle: UITextField!
     
     // MARK: - Object initialization & Optional
     var dataToBeUpdate: TransactionModel?
@@ -51,6 +52,11 @@ class DetailViewController: UIViewController, UITextViewDelegate {
                 totalAmount.text = "Rp. \(amount)"
             }
         }
+        
+        eventTitle.layer.cornerRadius = 8.0;
+        eventTitle.layer.masksToBounds = true;
+        eventTitle.layer.borderColor = UIColor.black.cgColor;
+        eventTitle.layer.borderWidth = 0.5;
     }
     
     override func viewDidLoad() {
