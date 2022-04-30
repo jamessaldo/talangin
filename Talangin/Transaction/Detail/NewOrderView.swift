@@ -13,7 +13,6 @@ class OrderViewCell: UIView {
     @IBOutlet weak var quantity: UITextField!
     @IBOutlet weak var amount: UITextField!
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -42,6 +41,5 @@ class OrderViewCell: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
     }
 }

@@ -13,7 +13,7 @@ protocol DetailViewControllerDelegate: AnyObject {
     func displayAlert(message:String?)
 }
 
-class DetailViewController: UIViewController, UITextViewDelegate {
+class DetailViewController: UIViewController, UITextViewDelegate, NewTransactionViewDelegate {
     
     // MARK: - Output element & Outlet connection
     @IBOutlet weak var tableView: UITableView!
@@ -32,13 +32,14 @@ class DetailViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var totalAmount: UILabel!
-    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var eventTitle: UITextField!
     
     // MARK: - Object initialization & Optional
     var dataToBeUpdate: TransactionModel?
     var newDataToBeSave: TransactionModel?
     var isUpdated: Bool = false
+    var listNewOrders: [OrderModel] = []
+    var orderCount: Int = 1
     
     // MARK: - delegate object initialization
     weak var delegate: DetailViewControllerDelegate?
@@ -51,12 +52,12 @@ class DetailViewController: UIViewController, UITextViewDelegate {
             if let amount = NumberFormatter.rupiahFormatter.string(from:Int(data.amount) as NSNumber) {
                 totalAmount.text = "Rp. \(amount)"
             }
+        } else {
+            eventTitle.layer.cornerRadius = 8.0;
+            eventTitle.layer.masksToBounds = true;
+            eventTitle.layer.borderColor = UIColor.black.cgColor;
+            eventTitle.layer.borderWidth = 0.5;
         }
-        
-        eventTitle.layer.cornerRadius = 8.0;
-        eventTitle.layer.masksToBounds = true;
-        eventTitle.layer.borderColor = UIColor.black.cgColor;
-        eventTitle.layer.borderWidth = 0.5;
     }
     
     override func viewDidLoad() {
@@ -81,6 +82,11 @@ class DetailViewController: UIViewController, UITextViewDelegate {
     }
     @IBAction func cancelAction(_ sender: UIButton) {
         self.dismiss(animated: true)
+    }
+    
+    func addMoreRow() {
+        self.orderCount += 1
+        self.newTableView.reloadData()
     }
 }
 
@@ -131,9 +137,22 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
             
             return cell
         }
+        
         let cell = (tableView.dequeueReusableCell(withIdentifier: "newTransactionViewCellID", for: indexPath) as? NewTransactionView)!
+        
         let nib = OrderViewCell()
+        nib.name.text = "Items \(orderCount)"
+        nib.price.text = "0"
+        nib.quantity.text = "0"
+        nib.amount.text = "0"
         cell.stackView.addArrangedSubview(nib)
+        
+        cell.delegate = self
+        let border = UIView()
+        border.backgroundColor = .gray
+        border.autoresizingMask = [.flexibleWidth, .flexibleBottomMargin]
+        border.frame = CGRect(x: 20, y: 0, width: 374, height: 1)
+        cell.stackView.addSubview(border)
         cell.selectionStyle = .none
         
         return cell
