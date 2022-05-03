@@ -16,7 +16,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QjB-LF-5jl">
-                        <rect key="frame" x="0.0" y="0.0" width="394" height="99"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
                     </stackView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lTQ-5q-9s7">
                         <rect key="frame" x="20" y="107" width="354" height="30"/>
@@ -43,8 +43,8 @@
                     <constraint firstAttribute="bottomMargin" secondItem="lTQ-5q-9s7" secondAttribute="bottom" constant="2" id="MRi-uD-K3x"/>
                     <constraint firstItem="lTQ-5q-9s7" firstAttribute="leading" secondItem="F6d-Ll-umw" secondAttribute="leadingMargin" id="NHN-IZ-9Wb"/>
                     <constraint firstItem="QjB-LF-5jl" firstAttribute="leading" secondItem="F6d-Ll-umw" secondAttribute="leading" id="RJd-3c-sOG"/>
-                    <constraint firstAttribute="trailing" secondItem="QjB-LF-5jl" secondAttribute="trailing" constant="20" id="VKH-Aa-CS3"/>
                     <constraint firstItem="lTQ-5q-9s7" firstAttribute="trailing" secondItem="F6d-Ll-umw" secondAttribute="trailing" constant="-40" id="c5p-4Q-N1o"/>
+                    <constraint firstAttribute="trailing" secondItem="QjB-LF-5jl" secondAttribute="trailing" id="psw-6p-kQW"/>
                     <constraint firstAttribute="bottomMargin" secondItem="QjB-LF-5jl" secondAttribute="bottom" constant="40" id="yRS-OV-Ieh"/>
                 </constraints>
             </tableViewCellContentView>

@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OrderViewCell" customModule="Talangin" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TransactionView">
             <connections>
                 <outlet property="amount" destination="iiF-xg-2oA" id="A5m-qP-woH"/>
                 <outlet property="name" destination="Az2-bl-msg" id="gNA-6z-dkG"/>
@@ -49,9 +49,8 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Efs-YT-fFa">
+                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Efs-YT-fFa">
                     <rect key="frame" x="20" y="119" width="374" height="1"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
             </subviews>
@@ -60,14 +59,18 @@
                 <constraint firstItem="iiF-xg-2oA" firstAttribute="width" secondItem="0Gj-tl-tob" secondAttribute="width" multiplier="0.289855" id="0vU-pJ-U2O"/>
                 <constraint firstItem="J3v-dT-mbh" firstAttribute="width" secondItem="0Gj-tl-tob" secondAttribute="width" multiplier="0.0772947" id="4GM-9Y-MM9"/>
                 <constraint firstItem="J3v-dT-mbh" firstAttribute="leading" secondItem="L7F-pd-rk7" secondAttribute="trailing" constant="56" id="9OB-ms-Fgj"/>
+                <constraint firstAttribute="trailing" secondItem="Efs-YT-fFa" secondAttribute="trailing" constant="20" id="BGU-nG-KMZ"/>
                 <constraint firstItem="0Gj-tl-tob" firstAttribute="bottom" secondItem="Az2-bl-msg" secondAttribute="bottom" constant="73" id="KIv-vX-FjK"/>
+                <constraint firstItem="Efs-YT-fFa" firstAttribute="top" secondItem="L7F-pd-rk7" secondAttribute="bottom" constant="18" id="LPa-qb-9aG"/>
                 <constraint firstItem="iiF-xg-2oA" firstAttribute="top" secondItem="J3v-dT-mbh" secondAttribute="top" id="PP0-aM-3wk"/>
                 <constraint firstItem="iiF-xg-2oA" firstAttribute="top" secondItem="L7F-pd-rk7" secondAttribute="top" id="UTH-nh-xfv"/>
                 <constraint firstItem="Az2-bl-msg" firstAttribute="width" secondItem="0Gj-tl-tob" secondAttribute="width" multiplier="0.903382" id="Ueb-b9-PzP"/>
                 <constraint firstItem="iiF-xg-2oA" firstAttribute="leading" secondItem="Qcn-la-QWC" secondAttribute="trailing" constant="13" id="Yll-xh-khB"/>
+                <constraint firstItem="Efs-YT-fFa" firstAttribute="leading" secondItem="nYH-N4-OPL" secondAttribute="leading" constant="20" id="cLn-4b-8AO"/>
                 <constraint firstItem="iiF-xg-2oA" firstAttribute="top" secondItem="Az2-bl-msg" secondAttribute="bottom" constant="20" id="dRW-UN-xYY"/>
                 <constraint firstItem="iiF-xg-2oA" firstAttribute="centerY" secondItem="Qcn-la-QWC" secondAttribute="centerY" id="eab-Gg-RXr"/>
                 <constraint firstItem="L7F-pd-rk7" firstAttribute="leading" secondItem="Az2-bl-msg" secondAttribute="leading" id="kRn-vP-sci"/>
+                <constraint firstItem="Efs-YT-fFa" firstAttribute="bottom" secondItem="0Gj-tl-tob" secondAttribute="bottom" id="mql-Xn-B0r"/>
                 <constraint firstItem="iiF-xg-2oA" firstAttribute="trailing" secondItem="Az2-bl-msg" secondAttribute="trailing" id="nhA-9D-wGf"/>
                 <constraint firstItem="0Gj-tl-tob" firstAttribute="trailing" secondItem="Az2-bl-msg" secondAttribute="trailing" constant="20" id="o0Y-kB-awI"/>
                 <constraint firstItem="Az2-bl-msg" firstAttribute="top" secondItem="nYH-N4-OPL" secondAttribute="top" constant="15" id="yxr-Dt-jMn"/>

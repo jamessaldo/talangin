@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, DetailViewControllerDelegate {
+class ViewController: UIViewController, DetailViewControllerDelegate, NewTransactionControllerDelegate {
     
     // MARK: - Input element & outlet connection
     
@@ -103,15 +103,14 @@ class ViewController: UIViewController, DetailViewControllerDelegate {
             let detailVC = segue.destination as? DetailViewController
             // since we already subscribe the delegate from second page, we need to connect it to here
             if let data = selectedRow {
-                detailVC?.dataToBeUpdate = data
-                detailVC?.isUpdated = true
+                detailVC?.data = data
             }
             detailVC?.delegate = self
         }
         if segue.identifier == "newTransaction" {
-            let detailVC = segue.destination as? DetailViewController
+            let newTransaction = segue.destination as? NewTransactionController
             // since we already subscribe the delegate from second page, we need to connect it to here
-            detailVC?.delegate = self
+            newTransaction?.delegate = self
         }
     }
     
