@@ -11,7 +11,6 @@ import UIKit
 protocol MemberOrderTransactionControllerDelegate: AnyObject {
     // Delegate method that can be used
     //    func displayAlert(message:String?)
-    func dismissModal()
 }
 
 class MemberOrderTransactionController: UIViewController, UITextFieldDelegate, MemberOrderTransactionViewDelegate {
@@ -29,15 +28,63 @@ class MemberOrderTransactionController: UIViewController, UITextFieldDelegate, M
             cancelButton.drawABorder()
         }
     }
-    @IBOutlet weak var date: UILabel!
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var totalAmount: UILabel!
     
     // MARK: - Object initialization & Optional
-    var newDataToBeSave: TransactionModel?
-    var isUpdated: Bool = false
-    var listNewOrders: [OrderModel] = []
     var orderCount: Int = 1
+    
+    var transaction: TransactionModel =
+        TransactionModel(
+            title: "Bukber BSD",
+            amount: 200000,
+            date: Date(),
+            personsOrders: [
+                PersonsOrdersModel(
+                    person: ContactModel(
+                        name: "Ghozy Ghulamul Afif",
+                        email: "ghozyghlmlaff@gmail.com"),
+                    total: 100000,
+                    orders: [
+                        OrderModel(
+                            name: "Ramen Reguler Ikkudo Ichi",
+                            quantity: 1,
+                            price: 70000,
+                            amount: 70000),
+                        OrderModel(
+                            name: "Josu Ikkudo Ichi",
+                            quantity: 1,
+                            price: 30000,
+                            amount: 30000)
+                    ]),
+                PersonsOrdersModel(
+                    person: ContactModel(
+                        name: "Rizky Febian",
+                        email: "rizkysr19@gmail.com"),
+                    total: 100000,
+                    orders: [
+                        OrderModel(
+                            name: "Ramen Reguler Ikkudo Ichi",
+                            quantity: 1,
+                            price: 70000,
+                            amount: 70000),
+                        OrderModel(
+                            name: "Josu Ikkudo Ichi",
+                            quantity: 1,
+                            price: 30000,
+                            amount: 30000)
+                    ])],
+            orders: [
+                OrderModel(
+                    name: "Ramen Reguler Ikkudo Ichi",
+                    quantity: 2,
+                    price: 70000,
+                    amount: 140000),
+                OrderModel(
+                    name: "Josu Ikkudo Ichi",
+                    quantity: 2,
+                    price: 30000,
+                    amount: 60000)
+            ])
+    
     
     // MARK: - delegate object initialization
     weak var delegate: MemberOrderTransactionControllerDelegate?
@@ -51,48 +98,60 @@ class MemberOrderTransactionController: UIViewController, UITextFieldDelegate, M
     
     // MARK: - Controls action
     @IBAction func saveAction(_ sender: UIButton) {
-        self.dismiss(animated: true) {
-            self.delegate?.dismissModal()
-        }
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Home") as!
+        UITabBarController
+        self.present(nextViewController, animated:true, completion:nil)
     }
     @IBAction func cancelAction(_ sender: UIButton) {
-        self.dismiss(animated: true)
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Home") as!
+        UITabBarController
+        self.present(nextViewController, animated:true, completion:nil)
     }
     
     func addMoreRow() {
         self.orderCount += 1
         self.tableView.reloadData()
     }
-    
-    func dismissModal() {
-        self.dismiss(animated: true)
-    }
 }
 
 extension MemberOrderTransactionController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return transaction.personsOrders.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = (tableView.dequeueReusableCell(withIdentifier: "memberOrderTransactionViewCellID", for: indexPath) as? MemberOrderTransactionView)!
         
-        let nib = MemberOrder()
-        nib.name.text = "Items \(orderCount)"
-        nib.price.text = "0"
-        nib.quantity.text = "0"
-        nib.amount.text = "0"
-        cell.stackView.addArrangedSubview(nib)
+        cell.personName.text = "\(transaction.personsOrders[indexPath.row].person.name)'s order"
         
-        cell.delegate = self
-        cell.selectionStyle = .none
+        //cleaning stackView to reuse it
+        cell.stackView.subviews.forEach { (view) in
+            if !(view is UILabel) {
+                view.removeFromSuperview()
+            }
+        }
         
-        if orderCount < 2 {
+        //Adding custom views to the stackView
+        for order in transaction.personsOrders[indexPath.row].orders {
+            let nib = MemberOrder()
+            nib.name.text = order.name
+            nib.quantity.text = "x\(order.quantity)"
+            if let amount = NumberFormatter.rupiahFormatter.string(from:Int(order.amount) as NSNumber) {
+                nib.amount.text = "Rp. \(amount)"
+            }
+            
+            
             let border = UIView()
             border.backgroundColor = .gray
             border.autoresizingMask = [.flexibleWidth, .flexibleBottomMargin]
             border.frame = CGRect(x: 20, y: 0, width: 374, height: 1)
             cell.stackView.addSubview(border)
+            
+            cell.stackView.addArrangedSubview(nib)
         }
         
         return cell

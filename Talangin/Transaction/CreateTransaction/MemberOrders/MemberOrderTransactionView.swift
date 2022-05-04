@@ -17,6 +17,7 @@ class MemberOrderTransactionView: UITableViewCell {
     
     @IBOutlet weak var addMore: UIButton!
     @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var personName: UILabel!
     
     // MARK: - delegate object initialization
     weak var delegate: MemberOrderTransactionViewDelegate?

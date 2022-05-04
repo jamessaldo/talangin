@@ -10,7 +10,6 @@ import UIKit
 // MARK: - Protocol for our own delegate
 protocol NewTransactionControllerDelegate: AnyObject {
     // Delegate method that can be used
-    func displayAlert(message:String?)
 }
 
 class NewTransactionController: UIViewController, UITextFieldDelegate, NewTransactionViewDelegate, MemberTransactionControllerDelegate {
@@ -22,21 +21,10 @@ class NewTransactionController: UIViewController, UITextFieldDelegate, NewTransa
             saveButton.drawARoundedCorner()
         }
     }
-    @IBOutlet weak var cancelButton: UIButton! {
-        didSet {
-            cancelButton.drawARoundedCorner()
-            cancelButton.drawABorder()
-        }
-    }
-    @IBOutlet weak var date: UILabel!
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var totalAmount: UILabel!
+    
     @IBOutlet weak var eventTitle: UITextField!
     
     // MARK: - Object initialization & Optional
-    var newDataToBeSave: TransactionModel?
-    var isUpdated: Bool = false
-    var listNewOrders: [OrderModel] = []
     var orderCount: Int = 1
     
     // MARK: - delegate object initialization
@@ -57,6 +45,7 @@ class NewTransactionController: UIViewController, UITextFieldDelegate, NewTransa
         let nib2 = UINib(nibName: "NewTransactionView", bundle: nil)
         self.tableView.register(nib2, forCellReuseIdentifier: "newTransactionViewCellID")
         eventTitle.delegate = self
+        self.navigationController?.navigationBar.tintColor = UIColor(hex: "#459A87")
     }
     
     // MARK: - Segue
@@ -70,11 +59,7 @@ class NewTransactionController: UIViewController, UITextFieldDelegate, NewTransa
     
     // MARK: - Controls action
     @IBAction func saveAction(_ sender: UIButton) {
-        self.delegate?.displayAlert(message:"Ahay")
         self.performSegue(withIdentifier: "orderToMember", sender: self)
-    }
-    @IBAction func cancelAction(_ sender: UIButton) {
-        self.dismiss(animated: true)
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
@@ -97,11 +82,6 @@ class NewTransactionController: UIViewController, UITextFieldDelegate, NewTransa
     func addMoreRow() {
         self.orderCount += 1
         self.tableView.reloadData()
-    }
-    
-    func dismissModal() {
-        self.dismiss(animated: true)
-        print("close")
     }
 }
 

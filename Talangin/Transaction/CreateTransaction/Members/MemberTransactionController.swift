@@ -10,8 +10,6 @@ import UIKit
 // MARK: - Protocol for our own delegate
 protocol MemberTransactionControllerDelegate: AnyObject {
     // Delegate method that can be used
-    //    func displayAlert(message:String?)
-    func dismissModal()
 }
 
 class MemberTransactionController: UIViewController, UITextFieldDelegate, MemberTransactionViewDelegate, MemberOrderTransactionControllerDelegate {
@@ -23,22 +21,8 @@ class MemberTransactionController: UIViewController, UITextFieldDelegate, Member
             saveButton.drawARoundedCorner()
         }
     }
-    @IBOutlet weak var cancelButton: UIButton! {
-        didSet {
-            cancelButton.drawARoundedCorner()
-            cancelButton.drawABorder()
-        }
-    }
-    @IBOutlet weak var date: UILabel!
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var totalAmount: UILabel!
     
     // MARK: - Object initialization & Optional
-    var newDataToBeSave: TransactionModel?
-    var isUpdated: Bool = false
-    var listNewOrders: [OrderModel] = []
-    var orderCount: Int = 1
-    
     var contactLists: [ContactModel] = [ContactModel(name: "Ghozy Ghulamul Afif", email: "ghozyghlmlaff@gmail.com"),
                                         ContactModel(name: "Rizky Febian", email: "rizkysr19@gmail.com"),
                                         ContactModel(name: "James Saldo", email: "jamessaldo19@gmail.com"),
@@ -69,19 +53,6 @@ class MemberTransactionController: UIViewController, UITextFieldDelegate, Member
     // MARK: - Controls action
     @IBAction func saveAction(_ sender: UIButton) {
         self.performSegue(withIdentifier: "memberToMemberOrder", sender: self)
-    }
-    @IBAction func cancelAction(_ sender: UIButton) {
-        self.dismiss(animated: true)
-    }
-    
-    func addMoreRow() {
-        self.orderCount += 1
-        self.tableView.reloadData()
-    }
-    
-    func dismissModal() {
-        self.dismiss(animated: true)
-        self.delegate?.dismissModal()
     }
 }
 
