@@ -378,11 +378,70 @@
                         <outlet property="cancelButton" destination="y7A-Zv-TJY" id="VYV-f7-a4Q"/>
                         <outlet property="saveButton" destination="XEW-VH-AAG" id="oxL-wS-owT"/>
                         <outlet property="tableView" destination="mMh-K0-buC" id="fQA-RJ-iUI"/>
+                        <segue destination="YO6-mJ-DDY" kind="presentation" identifier="selectOrder" id="Gtz-4N-LQr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KlX-QT-q5M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3182.608695652174" y="-494.19642857142856"/>
+        </scene>
+        <!--Members-->
+        <scene sceneID="Qy3-xI-tpn">
+            <objects>
+                <viewController id="YO6-mJ-DDY" customClass="SelectOrderController" customModule="Talangin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Kgi-3f-rA2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qkb-Qh-2cx">
+                                <rect key="frame" x="20" y="732" width="374" height="44"/>
+                                <color key="backgroundColor" red="0.270588249" green="0.60392159219999997" blue="0.52941179279999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="u0b-ev-weU"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="OK">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
+                                    <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="saveAction:" destination="YO6-mJ-DDY" eventType="touchUpInside" id="Ndz-q2-l4O"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="f47-Qe-r6y">
+                                <rect key="frame" x="0.0" y="64" width="414" height="464"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="464" id="pXP-E8-BZw"/>
+                                    <constraint firstAttribute="width" constant="414" id="wL0-0K-PIQ"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="YO6-mJ-DDY" id="jnd-89-7V5"/>
+                                    <outlet property="delegate" destination="YO6-mJ-DDY" id="R8E-Gm-xR8"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="m5P-e0-wlJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Qkb-Qh-2cx" firstAttribute="leading" secondItem="m5P-e0-wlJ" secondAttribute="leading" constant="20" id="2R5-0b-kEt"/>
+                            <constraint firstItem="f47-Qe-r6y" firstAttribute="centerX" secondItem="Qkb-Qh-2cx" secondAttribute="centerX" id="6Ic-c2-cFd"/>
+                            <constraint firstItem="m5P-e0-wlJ" firstAttribute="bottom" secondItem="Qkb-Qh-2cx" secondAttribute="bottom" constant="66" id="6v6-XX-Hbg"/>
+                            <constraint firstItem="m5P-e0-wlJ" firstAttribute="trailing" secondItem="Qkb-Qh-2cx" secondAttribute="trailing" constant="20" id="P4I-7O-j5v"/>
+                            <constraint firstItem="f47-Qe-r6y" firstAttribute="leading" secondItem="Kgi-3f-rA2" secondAttribute="leading" id="VYC-Lf-C6I"/>
+                            <constraint firstAttribute="trailing" secondItem="f47-Qe-r6y" secondAttribute="trailing" id="Wxi-Bo-3E6"/>
+                            <constraint firstItem="f47-Qe-r6y" firstAttribute="top" secondItem="m5P-e0-wlJ" secondAttribute="top" constant="20" id="idM-8m-JmX"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Members" id="RzM-Zb-isP"/>
+                    <connections>
+                        <outlet property="saveButton" destination="Qkb-Qh-2cx" id="gyK-mD-6zb"/>
+                        <outlet property="tableView" destination="f47-Qe-r6y" id="duv-o7-scy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f8D-pZ-94U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4203" y="-494"/>
         </scene>
     </scenes>
     <resources>

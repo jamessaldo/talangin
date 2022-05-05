@@ -13,6 +13,8 @@ class TransactionView: UIView, UITextFieldDelegate {
     @IBOutlet weak var quantity: UITextField!
     @IBOutlet weak var amount: UITextField!
     
+    var data: OrderModel = OrderModel()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -49,13 +51,10 @@ class TransactionView: UIView, UITextFieldDelegate {
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        if textField == name {
+        if textField == name && name.text?.contains("Items") ?? false {
             name.text = ""
         }
-        return true
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
         if textField == price && price.text == "0" {
             price.text = ""
         }
@@ -67,14 +66,29 @@ class TransactionView: UIView, UITextFieldDelegate {
         if textField == amount && amount.text == "0" {
             amount.text = ""
         }
+        return true
     }
+    
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if string == "\n" {
             // Since our textview text it's an optional, which possible to have a nil, then we need to use it savely
-            if let storyHasSomething = name.text {
-                print(storyHasSomething)
+            if let text = name.text {
+                data.name = text
             }
+            
+            if let text = price.text {
+                data.price = Float(text) ?? 0
+            }
+            
+            if let text = amount.text {
+                data.amount = Float(text) ?? 0
+            }
+            
+            if let text = quantity.text {
+                data.quantity = Int(text) ?? 0
+            }
+            
             name.resignFirstResponder()
             return false
         }

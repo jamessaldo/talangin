@@ -38,7 +38,7 @@ class DetailViewController: UIViewController, UITextViewDelegate {
             name.text = data.title
             date.text = DateFormatter.mediumDateFormatter.string(from: data.date)
             if let amount = NumberFormatter.rupiahFormatter.string(from:Int(data.amount) as NSNumber) {
-                totalAmount.text = "Rp. \(amount)"
+                totalAmount.text = amount
             }
         }
     }
@@ -69,9 +69,9 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = (tableView.dequeueReusableCell(withIdentifier: "detailViewCellID", for: indexPath) as? DetailViewCell)!
         if let data = self.data {
-            cell.personName.text = "\(data.personsOrders[indexPath.row].person.name)'s total"
+            cell.personName.text = "\(data.personsOrders[indexPath.row].person?.name ?? "Person \(indexPath.row + 1)")'s total"
             if let amount = NumberFormatter.rupiahFormatter.string(from:Int(data.personsOrders[indexPath.row].total) as NSNumber) {
-                cell.totalAmount.text = "Rp. \(amount)"
+                cell.totalAmount.text = amount
             }
             
             //cleaning stackView to reuse it
@@ -86,10 +86,11 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
                 let nib = DetailTransactionView()
                 nib.name.text = order.name
                 nib.quantity.text = "x\(order.quantity)"
-                if let amount = NumberFormatter.rupiahFormatter.string(from:Int(order.amount) as NSNumber) {
-                    nib.amount.text = "Rp. \(amount)"
+                if let index = self.data?.orders.firstIndex(where: { $0.name == order.name}){
+                    if let amount = NumberFormatter.rupiahFormatter.string(from:Int(Int(order.amount) / (self.data?.orders[index].totalMember ?? 1)) as NSNumber) {
+                        nib.amount.text = amount
+                    }
                 }
-                
                 
                 let border = UIView()
                 border.backgroundColor = .gray

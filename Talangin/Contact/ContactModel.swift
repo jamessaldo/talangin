@@ -8,7 +8,6 @@
 import Foundation
 
 struct ContactModel {
-    var name: String
-    var email: String
-    var isSelected: Bool = false
+    var name: String = ""
+    var email: String = ""
 }

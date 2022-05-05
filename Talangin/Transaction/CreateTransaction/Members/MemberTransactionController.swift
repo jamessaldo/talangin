@@ -28,6 +28,7 @@ class MemberTransactionController: UIViewController, UITextFieldDelegate, Member
                                         ContactModel(name: "James Saldo", email: "jamessaldo19@gmail.com"),
                                         ContactModel(name: "Si Ipul", email: "mayarrezeki@gmail.com"),
                                         ContactModel(name: "Si Upil", email: "mayartestprod@gmail.com")]
+    var transactionData: TransactionModel?
     
     // MARK: - delegate object initialization
     weak var delegate: MemberTransactionControllerDelegate?
@@ -45,6 +46,15 @@ class MemberTransactionController: UIViewController, UITextFieldDelegate, Member
         if segue.identifier == "memberToMemberOrder" {
             let memberOrder = segue.destination as? MemberOrderTransactionController
             // since we already subscribe the delegate from second page, we need to connect it to here
+            
+            for cell in self.tableView.visibleCells {
+                if cell.isSelected {
+                    if let cell = cell as? MemberTransactionView {
+                        transactionData?.personsOrders.append(PersonsOrdersModel(person: cell.contact ?? ContactModel()))
+                    }
+                }
+            }
+            memberOrder?.transactionData = transactionData
             memberOrder?.delegate = self
         }
     }
@@ -64,18 +74,12 @@ extension MemberTransactionController: UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = (tableView.dequeueReusableCell(withIdentifier: "memberTransactionViewCellID", for: indexPath) as? MemberTransactionView)!
         cell.contactName.text = contactLists[indexPath.row].name
+        cell.contact = contactLists[indexPath.row]
         cell.selectionStyle = .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 44
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        contactLists[indexPath.row].isSelected = true
-    }
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        contactLists[indexPath.row].isSelected = false
     }
 }

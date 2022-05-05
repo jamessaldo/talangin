@@ -10,7 +10,7 @@ import UIKit
 // MARK: - Protocol for our own delegate
 protocol MemberOrderTransactionViewDelegate: AnyObject {
     // Delegate method that can be used
-    func addMoreRow()
+    func addMoreRow(indexPerson: Int)
 }
 
 class MemberOrderTransactionView: UITableViewCell {
@@ -21,6 +21,8 @@ class MemberOrderTransactionView: UITableViewCell {
     
     // MARK: - delegate object initialization
     weak var delegate: MemberOrderTransactionViewDelegate?
+    var contact: ContactModel = ContactModel()
+    var indexPerson: Int?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,7 +30,7 @@ class MemberOrderTransactionView: UITableViewCell {
     }
     
     @IBAction func addMoreAction(_ sender: UIButton) {
-        self.delegate?.addMoreRow()
+        self.delegate?.addMoreRow(indexPerson: self.indexPerson ?? 0)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -21,6 +21,9 @@
 		E6471123281BCFE10058E649 /* NewTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6471121281BCFE10058E649 /* NewTransactionView.swift */; };
 		E6471124281BCFE10058E649 /* NewTransactionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6471122281BCFE10058E649 /* NewTransactionView.xib */; };
 		E65E814A28198D4B0016156D /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65E814928198D4B0016156D /* TransactionModel.swift */; };
+		E6965A8628240F9800EB836A /* SelectOrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6965A8328240F9800EB836A /* SelectOrderController.swift */; };
+		E6965A8728240F9800EB836A /* SelectOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6965A8428240F9800EB836A /* SelectOrderView.swift */; };
+		E6965A8828240F9800EB836A /* SelectOrderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6965A8528240F9800EB836A /* SelectOrderView.xib */; };
 		E6A8AEAE281A8A71004AD696 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A8AEAD281A8A71004AD696 /* TransactionCell.swift */; };
 		E6A8AEB2281A8B46004AD696 /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6A8AEB1281A8B46004AD696 /* TransactionCell.xib */; };
 		E6A8AEB8281AA07D004AD696 /* DetailViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6A8AEB7281AA07D004AD696 /* DetailViewCell.xib */; };
@@ -77,6 +80,9 @@
 		E6471121281BCFE10058E649 /* NewTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransactionView.swift; sourceTree = "<group>"; };
 		E6471122281BCFE10058E649 /* NewTransactionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewTransactionView.xib; sourceTree = "<group>"; };
 		E65E814928198D4B0016156D /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
+		E6965A8328240F9800EB836A /* SelectOrderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectOrderController.swift; sourceTree = "<group>"; };
+		E6965A8428240F9800EB836A /* SelectOrderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectOrderView.swift; sourceTree = "<group>"; };
+		E6965A8528240F9800EB836A /* SelectOrderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectOrderView.xib; sourceTree = "<group>"; };
 		E6A8AEAD281A8A71004AD696 /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		E6A8AEB1281A8B46004AD696 /* TransactionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
 		E6A8AEB7281AA07D004AD696 /* DetailViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewCell.xib; sourceTree = "<group>"; };
@@ -167,11 +173,22 @@
 		E6118A6D281DB38600959A8B /* CreateTransaction */ = {
 			isa = PBXGroup;
 			children = (
+				E64A940928240EEC0093BEF0 /* SelectOrders */,
 				E61039B828215B0D00B19EDB /* MemberOrders */,
 				E61039B728215B0700B19EDB /* Members */,
 				E61039B628215AFE00B19EDB /* Orders */,
 			);
 			path = CreateTransaction;
+			sourceTree = "<group>";
+		};
+		E64A940928240EEC0093BEF0 /* SelectOrders */ = {
+			isa = PBXGroup;
+			children = (
+				E6965A8328240F9800EB836A /* SelectOrderController.swift */,
+				E6965A8428240F9800EB836A /* SelectOrderView.swift */,
+				E6965A8528240F9800EB836A /* SelectOrderView.xib */,
+			);
+			path = SelectOrders;
 			sourceTree = "<group>";
 		};
 		E6A8AEC3281B0BD1004AD696 /* Detail */ = {
@@ -373,6 +390,7 @@
 				E61039C82821676300B19EDB /* MemberTransactionView.xib in Resources */,
 				E6A8AEB8281AA07D004AD696 /* DetailViewCell.xib in Resources */,
 				E6D3098428193FD400A20A5E /* Transactions.storyboard in Resources */,
+				E6965A8828240F9800EB836A /* SelectOrderView.xib in Resources */,
 				E6A8AEB2281A8B46004AD696 /* TransactionCell.xib in Resources */,
 				E6A8AEC2281B074F004AD696 /* DetailTransactionView.xib in Resources */,
 				E61039C02821674F00B19EDB /* MemberOrderTransactionView.xib in Resources */,
@@ -415,12 +433,14 @@
 				E6471120281BBAAB0058E649 /* TransactionView.swift in Sources */,
 				E6A8AEBA281AA338004AD696 /* DetailViewCell.swift in Sources */,
 				E6D3093C281920ED00A20A5E /* AppDelegate.swift in Sources */,
+				E6965A8628240F9800EB836A /* SelectOrderController.swift in Sources */,
 				E61039CE28216A6400B19EDB /* MemberOrderTransactionController.swift in Sources */,
 				E6D309722819268700A20A5E /* DetailViewController.swift in Sources */,
 				E61039C72821676300B19EDB /* MemberTransactionView.swift in Sources */,
 				E6A8AEC1281B074F004AD696 /* DetailTransactionView.swift in Sources */,
 				E6D3093E281920ED00A20A5E /* SceneDelegate.swift in Sources */,
 				E6D309702819268700A20A5E /* ContactViewController.swift in Sources */,
+				E6965A8728240F9800EB836A /* SelectOrderView.swift in Sources */,
 				E6D309742819268700A20A5E /* ContactCell.swift in Sources */,
 				E6A8AEAE281A8A71004AD696 /* TransactionCell.swift in Sources */,
 				E61039CC28216A5900B19EDB /* MemberTransactionController.swift in Sources */,

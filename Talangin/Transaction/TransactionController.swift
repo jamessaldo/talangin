@@ -33,14 +33,14 @@ class ViewController: UIViewController, DetailViewControllerDelegate, NewTransac
                     orders: [
                         OrderModel(
                             name: "Ramen Reguler Ikkudo Ichi",
-                            quantity: 1,
+                            quantity: 2,
                             price: 70000,
-                            amount: 70000),
+                            amount: 140000),
                         OrderModel(
                             name: "Josu Ikkudo Ichi",
-                            quantity: 1,
+                            quantity: 2,
                             price: 30000,
-                            amount: 30000)
+                            amount: 60000)
                     ]),
                 PersonsOrdersModel(
                     person: ContactModel(
@@ -50,26 +50,28 @@ class ViewController: UIViewController, DetailViewControllerDelegate, NewTransac
                     orders: [
                         OrderModel(
                             name: "Ramen Reguler Ikkudo Ichi",
-                            quantity: 1,
+                            quantity: 2,
                             price: 70000,
-                            amount: 70000),
+                            amount: 140000),
                         OrderModel(
                             name: "Josu Ikkudo Ichi",
-                            quantity: 1,
+                            quantity: 2,
                             price: 30000,
-                            amount: 30000)
+                            amount: 60000)
                     ])],
             orders: [
                 OrderModel(
                     name: "Ramen Reguler Ikkudo Ichi",
                     quantity: 2,
                     price: 70000,
-                    amount: 140000),
+                    amount: 140000,
+                    totalMember: 2),
                 OrderModel(
                     name: "Josu Ikkudo Ichi",
                     quantity: 2,
                     price: 30000,
-                    amount: 60000)
+                    amount: 60000,
+                    totalMember: 2)
             ])
     ]
     var selectedRow: TransactionModel?
@@ -134,7 +136,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         cell.personCount.text = "\(transactionLists[indexPath.row].personsOrders.count) Persons"
         cell.date.text = DateFormatter.mediumDateFormatter.string(from: transactionLists[indexPath.row].date)
         if let amount = NumberFormatter.rupiahFormatter.string(from:Int(transactionLists[indexPath.row].amount) as NSNumber) {
-            cell.totalAmount.text = "Rp. \(amount)"
+            cell.totalAmount.text = amount
         }
         
         cell.selectionStyle = .none
@@ -166,7 +168,7 @@ extension NumberFormatter {
         let nf = NumberFormatter()
         nf.locale = Locale(identifier: "id_ID")
         nf.groupingSeparator = ","
-        nf.numberStyle = .decimal
+        nf.numberStyle = .currency
         return nf
     }()
 }

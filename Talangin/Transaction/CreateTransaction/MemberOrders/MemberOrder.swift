@@ -7,11 +7,13 @@
 
 import UIKit
 
-class MemberOrder: UIView, UITextFieldDelegate {
+class MemberOrder: UIView {
     @IBOutlet weak var name: UILabel!
 //    @IBOutlet weak var price: UITextField!
     @IBOutlet weak var quantity: UILabel!
     @IBOutlet weak var amount: UILabel!
+    
+    var data: OrderModel?
     
     override init(frame: CGRect) {
         super.init(frame: frame)

@@ -1,5 +1,5 @@
 //
-//  MemberTransactionView.swift
+//  SelectOrderView.swift
 //  Talangin
 //
 //  Created by zy on 29/04/22.
@@ -8,17 +8,17 @@
 import UIKit
 
 // MARK: - Protocol for our own delegate
-protocol MemberTransactionViewDelegate: AnyObject {
+protocol SelectOrderViewDelegate: AnyObject {
     // Delegate method that can be used
 }
 
-class MemberTransactionView: UITableViewCell {
+class SelectOrderView: UITableViewCell {
     
     @IBOutlet weak var contactName: UILabel!
     
-    var contact: ContactModel?
+    var contact: OrderModel?
     // MARK: - delegate object initialization
-    weak var delegate: MemberTransactionViewDelegate?
+    weak var delegate: SelectOrderViewDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()

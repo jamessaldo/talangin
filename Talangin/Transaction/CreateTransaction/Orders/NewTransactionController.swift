@@ -26,6 +26,7 @@ class NewTransactionController: UIViewController, UITextFieldDelegate, NewTransa
     
     // MARK: - Object initialization & Optional
     var orderCount: Int = 1
+    var transactionData: TransactionModel = TransactionModel()
     
     // MARK: - delegate object initialization
     weak var delegate: NewTransactionControllerDelegate?
@@ -53,25 +54,35 @@ class NewTransactionController: UIViewController, UITextFieldDelegate, NewTransa
         if segue.identifier == "orderToMember" {
             let member = segue.destination as? MemberTransactionController
             // since we already subscribe the delegate from second page, we need to connect it to here
+            member?.transactionData = transactionData
             member?.delegate = self
         }
     }
     
     // MARK: - Controls action
     @IBAction func saveAction(_ sender: UIButton) {
+        let cell = self.tableView.cellForRow(at: [0,0]) as? NewTransactionView
+        transactionData.orders = []
+        cell?.stackView.arrangedSubviews.forEach { (view) in
+            if let sv = view as? TransactionView {
+                transactionData.orders.append(sv.data)
+            }
+        }
         self.performSegue(withIdentifier: "orderToMember", sender: self)
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        eventTitle.text = ""
+        if eventTitle.text == "Transaction Title" {
+            eventTitle.text = ""
+        }
         return true
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if string == "\n" {
             // Since our textview text it's an optional, which possible to have a nil, then we need to use it savely
-            if let storyHasSomething = eventTitle.text {
-                print(storyHasSomething)
+            if let text = eventTitle.text {
+                transactionData.title = text
             }
             eventTitle.resignFirstResponder()
             return false
@@ -92,7 +103,6 @@ extension NewTransactionController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = (tableView.dequeueReusableCell(withIdentifier: "newTransactionViewCellID", for: indexPath) as? NewTransactionView)!
-        
         let nib = TransactionView()
         nib.name.text = "Items \(orderCount)"
         nib.price.text = "0"
@@ -110,7 +120,6 @@ extension NewTransactionController: UITableViewDataSource, UITableViewDelegate {
         
         cell.delegate = self
         cell.selectionStyle = .none
-        
         return cell
     }
     
