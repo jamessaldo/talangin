@@ -46,6 +46,7 @@ class ContactViewController: UIViewController {
         do {
             contacts = try managedObjectContext.fetch(fetchRequest)
         } catch let error as NSError {
+            print(error)
             print("error while fetching data in core data!")
         }
     }

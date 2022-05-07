@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 // MARK: - Protocol for our own delegate
 protocol MemberTransactionControllerDelegate: AnyObject {
@@ -23,15 +24,29 @@ class MemberTransactionController: UIViewController, UITextFieldDelegate, Member
     }
     
     // MARK: - Object initialization & Optional
-    var contactLists: [ContactModel] = [ContactModel(name: "Ghozy Ghulamul Afif", email: "ghozyghlmlaff@gmail.com"),
-                                        ContactModel(name: "Rizky Febian", email: "rizkysr19@gmail.com"),
-                                        ContactModel(name: "James Saldo", email: "jamessaldo19@gmail.com"),
-                                        ContactModel(name: "Si Ipul", email: "mayarrezeki@gmail.com"),
-                                        ContactModel(name: "Si Upil", email: "mayartestprod@gmail.com")]
+    var contactLists: [ContactModel] = []
     var transactionData: TransactionModel?
     
     // MARK: - delegate object initialization
     weak var delegate: MemberTransactionControllerDelegate?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+        let fetchRequest = NSFetchRequest<People>(entityName: "People")
+
+        do {
+            let people = try managedObjectContext.fetch(fetchRequest)
+            for p in people {
+                contactLists.append(ContactModel(name: p.name ?? "Unknown Name", email: p.email ?? "Unknown Email"))
+            }
+        } catch let error as NSError {
+            print(error)
+            print("error while fetching data in core data!")
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
