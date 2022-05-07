@@ -16,6 +16,8 @@
 		E61039C82821676300B19EDB /* MemberTransactionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E61039C42821676300B19EDB /* MemberTransactionView.xib */; };
 		E61039CC28216A5900B19EDB /* MemberTransactionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61039CB28216A5900B19EDB /* MemberTransactionController.swift */; };
 		E61039CE28216A6400B19EDB /* MemberOrderTransactionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61039CD28216A6400B19EDB /* MemberOrderTransactionController.swift */; };
+		E63FF6502824F57E00DD0E86 /* People+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63FF64E2824F57E00DD0E86 /* People+CoreDataClass.swift */; };
+		E63FF6512824F57E00DD0E86 /* People+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63FF64F2824F57E00DD0E86 /* People+CoreDataProperties.swift */; };
 		E647111A281BA0200058E649 /* TransactionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6471119281BA0200058E649 /* TransactionView.xib */; };
 		E6471120281BBAAB0058E649 /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E647111F281BBAAB0058E649 /* TransactionView.swift */; };
 		E6471123281BCFE10058E649 /* NewTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6471121281BCFE10058E649 /* NewTransactionView.swift */; };
@@ -30,6 +32,7 @@
 		E6A8AEBA281AA338004AD696 /* DetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A8AEB9281AA338004AD696 /* DetailViewCell.swift */; };
 		E6A8AEC1281B074F004AD696 /* DetailTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A8AEBF281B074F004AD696 /* DetailTransactionView.swift */; };
 		E6A8AEC2281B074F004AD696 /* DetailTransactionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6A8AEC0281B074F004AD696 /* DetailTransactionView.xib */; };
+		E6CE33872824C1B7003E118C /* Talangin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E6CE33852824C1B7003E118C /* Talangin.xcdatamodeld */; };
 		E6D3093C281920ED00A20A5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D3093B281920ED00A20A5E /* AppDelegate.swift */; };
 		E6D3093E281920ED00A20A5E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D3093D281920ED00A20A5E /* SceneDelegate.swift */; };
 		E6D30940281920ED00A20A5E /* TransactionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D3093F281920ED00A20A5E /* TransactionController.swift */; };
@@ -40,7 +43,7 @@
 		E6D3095D281920F200A20A5E /* TalanginUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D3095C281920F200A20A5E /* TalanginUITests.swift */; };
 		E6D3095F281920F200A20A5E /* TalanginUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D3095E281920F200A20A5E /* TalanginUITestsLaunchTests.swift */; };
 		E6D309702819268700A20A5E /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D3096B2819268700A20A5E /* ContactViewController.swift */; };
-		E6D309712819268700A20A5E /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D3096C2819268700A20A5E /* ContactModel.swift */; };
+		E6D309712819268700A20A5E /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D3096C2819268700A20A5E /* Contact.swift */; };
 		E6D309722819268700A20A5E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D3096D2819268700A20A5E /* DetailViewController.swift */; };
 		E6D309732819268700A20A5E /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D3096E2819268700A20A5E /* UIButton+Extension.swift */; };
 		E6D309742819268700A20A5E /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D3096F2819268700A20A5E /* ContactCell.swift */; };
@@ -75,6 +78,8 @@
 		E61039C42821676300B19EDB /* MemberTransactionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemberTransactionView.xib; sourceTree = "<group>"; };
 		E61039CB28216A5900B19EDB /* MemberTransactionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberTransactionController.swift; sourceTree = "<group>"; };
 		E61039CD28216A6400B19EDB /* MemberOrderTransactionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberOrderTransactionController.swift; sourceTree = "<group>"; };
+		E63FF64E2824F57E00DD0E86 /* People+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "People+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E63FF64F2824F57E00DD0E86 /* People+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "People+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E6471119281BA0200058E649 /* TransactionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionView.xib; sourceTree = "<group>"; };
 		E647111F281BBAAB0058E649 /* TransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
 		E6471121281BCFE10058E649 /* NewTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransactionView.swift; sourceTree = "<group>"; };
@@ -89,6 +94,7 @@
 		E6A8AEB9281AA338004AD696 /* DetailViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewCell.swift; sourceTree = "<group>"; };
 		E6A8AEBF281B074F004AD696 /* DetailTransactionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTransactionView.swift; sourceTree = "<group>"; };
 		E6A8AEC0281B074F004AD696 /* DetailTransactionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailTransactionView.xib; sourceTree = "<group>"; };
+		E6CE33862824C1B7003E118C /* Talangin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Talangin.xcdatamodel; sourceTree = "<group>"; };
 		E6D30938281920ED00A20A5E /* Talangin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Talangin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6D3093B281920ED00A20A5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6D3093D281920ED00A20A5E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,7 +109,7 @@
 		E6D3095C281920F200A20A5E /* TalanginUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalanginUITests.swift; sourceTree = "<group>"; };
 		E6D3095E281920F200A20A5E /* TalanginUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalanginUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E6D3096B2819268700A20A5E /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
-		E6D3096C2819268700A20A5E /* ContactModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
+		E6D3096C2819268700A20A5E /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		E6D3096D2819268700A20A5E /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		E6D3096E2819268700A20A5E /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		E6D3096F2819268700A20A5E /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
@@ -206,6 +212,8 @@
 		E6D3092F281920ED00A20A5E = {
 			isa = PBXGroup;
 			children = (
+				E63FF64E2824F57E00DD0E86 /* People+CoreDataClass.swift */,
+				E63FF64F2824F57E00DD0E86 /* People+CoreDataProperties.swift */,
 				E6D3093A281920ED00A20A5E /* Talangin */,
 				E6D30951281920F200A20A5E /* TalanginTests */,
 				E6D3095B281920F200A20A5E /* TalanginUITests */,
@@ -235,6 +243,7 @@
 				E6D30944281920F100A20A5E /* Assets.xcassets */,
 				E6D30946281920F100A20A5E /* LaunchScreen.storyboard */,
 				E6D30949281920F100A20A5E /* Info.plist */,
+				E6CE33852824C1B7003E118C /* Talangin.xcdatamodeld */,
 			);
 			path = Talangin;
 			sourceTree = "<group>";
@@ -274,7 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				E6D3096F2819268700A20A5E /* ContactCell.swift */,
-				E6D3096C2819268700A20A5E /* ContactModel.swift */,
+				E6D3096C2819268700A20A5E /* Contact.swift */,
 				E6D3096B2819268700A20A5E /* ContactViewController.swift */,
 				E6D3098528193FED00A20A5E /* Contacts.storyboard */,
 			);
@@ -428,9 +437,12 @@
 				E6471123281BCFE10058E649 /* NewTransactionView.swift in Sources */,
 				E61039BA28215DDE00B19EDB /* NewTransactionController.swift in Sources */,
 				E65E814A28198D4B0016156D /* TransactionModel.swift in Sources */,
+				E6CE33872824C1B7003E118C /* Talangin.xcdatamodeld in Sources */,
+				E63FF6502824F57E00DD0E86 /* People+CoreDataClass.swift in Sources */,
 				E6D30940281920ED00A20A5E /* TransactionController.swift in Sources */,
-				E6D309712819268700A20A5E /* ContactModel.swift in Sources */,
+				E6D309712819268700A20A5E /* Contact.swift in Sources */,
 				E6471120281BBAAB0058E649 /* TransactionView.swift in Sources */,
+				E63FF6512824F57E00DD0E86 /* People+CoreDataProperties.swift in Sources */,
 				E6A8AEBA281AA338004AD696 /* DetailViewCell.swift in Sources */,
 				E6D3093C281920ED00A20A5E /* AppDelegate.swift in Sources */,
 				E6965A8628240F9800EB836A /* SelectOrderController.swift in Sources */,
@@ -794,6 +806,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E6CE33852824C1B7003E118C /* Talangin.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E6CE33862824C1B7003E118C /* Talangin.xcdatamodel */,
+			);
+			currentVersion = E6CE33862824C1B7003E118C /* Talangin.xcdatamodel */;
+			path = Talangin.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E6D30930281920ED00A20A5E /* Project object */;
 }

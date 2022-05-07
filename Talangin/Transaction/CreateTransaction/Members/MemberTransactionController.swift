@@ -46,7 +46,7 @@ class MemberTransactionController: UIViewController, UITextFieldDelegate, Member
         if segue.identifier == "memberToMemberOrder" {
             let memberOrder = segue.destination as? MemberOrderTransactionController
             // since we already subscribe the delegate from second page, we need to connect it to here
-            
+            transactionData?.personsOrders = []
             for cell in self.tableView.visibleCells {
                 if cell.isSelected {
                     if let cell = cell as? MemberTransactionView {

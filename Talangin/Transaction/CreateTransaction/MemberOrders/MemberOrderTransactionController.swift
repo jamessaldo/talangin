@@ -116,7 +116,7 @@ extension MemberOrderTransactionController: UITableViewDataSource, UITableViewDe
         let cell = (tableView.dequeueReusableCell(withIdentifier: "memberOrderTransactionViewCellID", for: indexPath) as? MemberOrderTransactionView)!
         let data = transactionData?.personsOrders[indexPath.row]
         cell.personName.text = "\(data?.person?.name ?? "Person \(indexPath.row + 1)")'s order"
-        cell.contact = data?.person ?? ContactModel()
+//        cell.contact = data?.person
         cell.indexPerson = indexPath.row
         cell.delegate = self
         //cleaning stackView to reuse it

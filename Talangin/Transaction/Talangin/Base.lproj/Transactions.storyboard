@@ -90,20 +90,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ynm-X3-lxc">
-                                <rect key="frame" x="22" y="66" width="219" height="40"/>
+                                <rect key="frame" x="22" y="66" width="219" height="48"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8Rm-Da-TCe">
+                                <rect key="frame" x="0.0" y="168" width="414" height="466"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="466" id="xIa-Z4-FFg"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="sf3-fL-s7b" id="ebx-3p-xz5"/>
+                                    <outlet property="delegate" destination="sf3-fL-s7b" id="7lG-MB-EEg"/>
+                                </connections>
+                            </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Split Bill" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Cd-WM-2ie" userLabel="Name">
                                 <rect key="frame" x="24" y="114" width="239" height="26.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26.5" id="mZf-3l-YXw"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EDU-vb-pY6" userLabel="Total">
-                                <rect key="frame" x="24" y="140" width="135" height="19.5"/>
+                                <rect key="frame" x="24" y="140.5" width="217" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2n-Sr-IyC" userLabel="Date">
+                                <rect key="frame" x="271" y="124" width="131" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -125,48 +145,31 @@
                                     <action selector="saveAction:" destination="sf3-fL-s7b" eventType="touchUpInside" id="R9R-zk-lTv"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8Rm-Da-TCe">
-                                <rect key="frame" x="0.0" y="163" width="414" height="471"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="471" id="xIa-Z4-FFg"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="dataSource" destination="sf3-fL-s7b" id="ebx-3p-xz5"/>
-                                    <outlet property="delegate" destination="sf3-fL-s7b" id="7lG-MB-EEg"/>
-                                </connections>
-                            </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2n-Sr-IyC" userLabel="Date">
-                                <rect key="frame" x="271" y="124" width="131" height="21.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KOx-7h-Rv4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="4Cd-WM-2ie" firstAttribute="leading" secondItem="KOx-7h-Rv4" secondAttribute="leading" constant="24" id="0Cu-w8-Q3B"/>
-                            <constraint firstItem="8Rm-Da-TCe" firstAttribute="top" secondItem="EDU-vb-pY6" secondAttribute="bottom" constant="3.5" id="3Dy-cC-ZJe"/>
-                            <constraint firstItem="EDU-vb-pY6" firstAttribute="leading" secondItem="KOx-7h-Rv4" secondAttribute="leading" constant="24" id="ACb-sq-Hmq"/>
+                            <constraint firstItem="8Rm-Da-TCe" firstAttribute="top" secondItem="KOx-7h-Rv4" secondAttribute="top" constant="124" id="3Dy-cC-ZJe"/>
                             <constraint firstItem="8Rm-Da-TCe" firstAttribute="leading" secondItem="KOx-7h-Rv4" secondAttribute="leading" id="B57-WT-Mq3"/>
                             <constraint firstAttribute="trailing" secondItem="8Rm-Da-TCe" secondAttribute="trailing" id="Efc-H8-IGE"/>
                             <constraint firstItem="ynm-X3-lxc" firstAttribute="top" secondItem="KOx-7h-Rv4" secondAttribute="top" constant="22" id="G0Y-ct-9eg"/>
-                            <constraint firstItem="KOx-7h-Rv4" firstAttribute="trailing" secondItem="EDU-vb-pY6" secondAttribute="trailing" constant="104" id="Jx9-zD-qaA"/>
+                            <constraint firstItem="KOx-7h-Rv4" firstAttribute="trailing" secondItem="EDU-vb-pY6" secondAttribute="trailing" constant="22" id="Jx9-zD-qaA"/>
                             <constraint firstItem="sSQ-Wx-y4g" firstAttribute="top" secondItem="8Rm-Da-TCe" secondAttribute="bottom" constant="98" id="KKC-B4-kFb"/>
                             <constraint firstItem="sSQ-Wx-y4g" firstAttribute="leading" secondItem="KOx-7h-Rv4" secondAttribute="leading" constant="20" id="LFm-TA-qCF"/>
+                            <constraint firstItem="4Cd-WM-2ie" firstAttribute="top" secondItem="KOx-7h-Rv4" secondAttribute="top" constant="70" id="LqS-vh-vQQ"/>
                             <constraint firstItem="KOx-7h-Rv4" firstAttribute="trailing" secondItem="sSQ-Wx-y4g" secondAttribute="trailing" constant="20" id="N76-6G-NrX"/>
+                            <constraint firstItem="4Cd-WM-2ie" firstAttribute="top" secondItem="ynm-X3-lxc" secondAttribute="bottom" id="Nd7-zL-RT1"/>
                             <constraint firstItem="q2n-Sr-IyC" firstAttribute="leading" secondItem="KOx-7h-Rv4" secondAttribute="leading" constant="271" id="TkJ-AV-eni"/>
                             <constraint firstItem="ynm-X3-lxc" firstAttribute="leading" secondItem="KOx-7h-Rv4" secondAttribute="leading" constant="22" id="Ux2-L4-26m"/>
-                            <constraint firstItem="EDU-vb-pY6" firstAttribute="top" secondItem="ynm-X3-lxc" secondAttribute="bottom" constant="34" id="Vva-4s-bci"/>
+                            <constraint firstItem="EDU-vb-pY6" firstAttribute="leading" secondItem="KOx-7h-Rv4" secondAttribute="leading" constant="24" id="YLe-yG-2EV"/>
                             <constraint firstItem="q2n-Sr-IyC" firstAttribute="top" secondItem="KOx-7h-Rv4" secondAttribute="top" constant="80" id="aah-mE-e4u"/>
-                            <constraint firstItem="4Cd-WM-2ie" firstAttribute="top" secondItem="KOx-7h-Rv4" secondAttribute="top" constant="70" id="bcv-zh-yah"/>
                             <constraint firstItem="sSQ-Wx-y4g" firstAttribute="width" secondItem="dLm-gm-BgL" secondAttribute="width" multiplier="0.888889" id="cKi-ja-YcO"/>
                             <constraint firstItem="KOx-7h-Rv4" firstAttribute="bottom" secondItem="sSQ-Wx-y4g" secondAttribute="bottom" constant="66" id="hov-Wq-6sS"/>
                             <constraint firstItem="q2n-Sr-IyC" firstAttribute="trailing" secondItem="KOx-7h-Rv4" secondAttribute="trailing" constant="139" id="lQn-pN-2yn"/>
                             <constraint firstItem="KOx-7h-Rv4" firstAttribute="trailing" secondItem="ynm-X3-lxc" secondAttribute="trailing" constant="22" id="s6f-ZA-12E"/>
+                            <constraint firstItem="EDU-vb-pY6" firstAttribute="top" secondItem="KOx-7h-Rv4" secondAttribute="top" constant="96.5" id="sSC-sJ-B8l"/>
                             <constraint firstItem="KOx-7h-Rv4" firstAttribute="trailing" secondItem="4Cd-WM-2ie" secondAttribute="trailing" id="yhf-mM-UTn"/>
-                            <constraint firstItem="EDU-vb-pY6" firstAttribute="top" secondItem="KOx-7h-Rv4" secondAttribute="top" constant="96" id="znM-88-USI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="03B-rp-I1E"/>
@@ -175,7 +178,7 @@
                         <outlet property="name" destination="4Cd-WM-2ie" id="Tog-iH-cIY"/>
                         <outlet property="saveButton" destination="sSQ-Wx-y4g" id="5wR-Ts-ykF"/>
                         <outlet property="tableView" destination="8Rm-Da-TCe" id="tfQ-AM-NZ4"/>
-                        <outlet property="totalAmount" destination="EDU-vb-pY6" id="XI3-tg-4ly"/>
+                        <outlet property="totalAmount" destination="EDU-vb-pY6" id="dhx-c8-Mzj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YEd-QK-CS4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
