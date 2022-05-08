@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Orders" representedClassName=".Orders" syncable="YES">
+        <attribute name="amount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" defaultValueString="Unknown Name"/>
+        <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalMembers" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="personOrders" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PersonOrders" inverseName="orders" inverseEntity="PersonOrders"/>
+        <relationship name="transaction" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Transactions" inverseName="orders" inverseEntity="Transactions"/>
+    </entity>
     <entity name="People" representedClassName=".People" syncable="YES">
         <attribute name="email" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
@@ -12,7 +21,23 @@
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
+    <entity name="PersonOrders" representedClassName=".PersonOrders" syncable="YES">
+        <attribute name="total" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="orders" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Orders" inverseName="personOrders" inverseEntity="Orders"/>
+        <relationship name="person" maxCount="1" deletionRule="Nullify" destinationEntity="People"/>
+        <relationship name="transactions" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Transactions" inverseName="personOrders" inverseEntity="Transactions"/>
+    </entity>
+    <entity name="Transactions" representedClassName=".Transactions" syncable="YES">
+        <attribute name="amount" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="title" optional="YES" attributeType="String" defaultValueString="Unknown Title"/>
+        <relationship name="orders" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Orders" inverseName="transaction" inverseEntity="Orders"/>
+        <relationship name="personOrders" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PersonOrders" inverseName="transactions" inverseEntity="PersonOrders"/>
+    </entity>
     <elements>
-        <element name="People" positionX="-63" positionY="-18" width="128" height="59"/>
+        <element name="People" positionX="-138.125" positionY="-177.33984375" width="128" height="59"/>
+        <element name="Transactions" positionX="182.1328125" positionY="178.0234375" width="128" height="104"/>
+        <element name="Orders" positionX="119.203125" positionY="-381.92578125" width="128" height="148"/>
+        <element name="PersonOrders" positionX="295.484375" positionY="-3.25390625" width="128" height="89"/>
     </elements>
 </model>

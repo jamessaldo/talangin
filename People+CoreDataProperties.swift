@@ -2,7 +2,7 @@
 //  People+CoreDataProperties.swift
 //  Talangin
 //
-//  Created by zy on 06/05/22.
+//  Created by zy on 08/05/22.
 //
 //
 

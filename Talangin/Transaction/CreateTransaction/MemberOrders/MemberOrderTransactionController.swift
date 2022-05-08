@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 // MARK: - Protocol for our own delegate
 protocol MemberOrderTransactionControllerDelegate: AnyObject {
@@ -58,14 +59,12 @@ class MemberOrderTransactionController: UIViewController, UITextFieldDelegate, M
     
     // MARK: - Controls action
     @IBAction func saveAction(_ sender: UIButton) {
-        for cell in self.tableView.visibleCells {
+        for (idx, cell) in self.tableView.visibleCells.enumerated() {
             if let cell = cell as? MemberOrderTransactionView {
-//                var orders: [OrderModel] = []
+                //                var orders: [OrderModel] = []
                 var total: Float = 0
                 cell.stackView.arrangedSubviews.forEach { (view) in
                     if let sv = view as? MemberOrder {
-//                        orders.append(sv.data ?? OrderModel())
-                        
                         var amount = sv.amount.text ?? "0"
                         let removedChar: Set<Character> = ["R","p", "."]
                         amount.removeAll(where: { removedChar.contains($0)})
@@ -74,9 +73,66 @@ class MemberOrderTransactionController: UIViewController, UITextFieldDelegate, M
                     }
                 }
                 self.transactionData?.amount = totalAmount
-                if let index = self.transactionData?.personsOrders.firstIndex(where: {$0.person?.name == cell.contact.name}){
-                    self.transactionData?.personsOrders[index].total = total
+                self.transactionData?.personsOrders[idx].total = total
+            }
+        }
+        print(self.transactionData ?? TransactionModel())
+        
+        let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        let transactionsEntity = NSEntityDescription.entity(forEntityName: "Transactions", in: managedObjectContext)
+        let transaction = Transactions(entity: transactionsEntity!, insertInto: managedObjectContext)
+        transaction.title = self.transactionData?.title
+        transaction.date = Date()
+        transaction.amount = self.transactionData?.amount ?? 0
+        
+        do {
+            try managedObjectContext.save()
+        } catch _ {
+        }
+        
+        var orderLists: [Orders] = []
+        let ordersEntity = NSEntityDescription.entity(forEntityName: "Orders", in: managedObjectContext)
+        for o in self.transactionData?.orders ?? [] {
+            let order = Orders(entity: ordersEntity!, insertInto: managedObjectContext)
+            order.name = o.name
+            order.quantity = Int32(o.quantity)
+            order.price = o.price
+            order.amount = Int32(o.amount)
+            order.totalMembers = Int32(o.totalMember)
+            order.transaction = transaction
+            orderLists.append(order)
+            do {
+                try managedObjectContext.save()
+            } catch _ {
+            }
+        }
+        
+        let personOrdersEntity = NSEntityDescription.entity(forEntityName: "PersonOrders", in: managedObjectContext)
+        for data in self.transactionData?.personsOrders ?? [] {
+            let po = PersonOrders(entity: personOrdersEntity!, insertInto: managedObjectContext)
+            po.total = data.total
+            po.transactions = transaction
+            var orders: [Orders] = []
+            for o in orderLists {
+                if let _ = data.orders.firstIndex(where: { $0.name == o.name}) {
+                    orders.append(o)
                 }
+            }
+            po.orders = NSSet(array: orders)
+            let fetchRequest = People.fetchRequest()
+            fetchRequest.predicate = NSPredicate(
+                format: "email = %@", data.person?.email ?? ""
+            )
+            fetchRequest.fetchLimit = 1
+            do {
+                let person = try managedObjectContext.fetch(fetchRequest).first
+                po.person = person
+            } catch _ {
+            }
+            do {
+                try managedObjectContext.save()
+            } catch _ {
             }
         }
         
@@ -116,7 +172,7 @@ extension MemberOrderTransactionController: UITableViewDataSource, UITableViewDe
         let cell = (tableView.dequeueReusableCell(withIdentifier: "memberOrderTransactionViewCellID", for: indexPath) as? MemberOrderTransactionView)!
         let data = transactionData?.personsOrders[indexPath.row]
         cell.personName.text = "\(data?.person?.name ?? "Person \(indexPath.row + 1)")'s order"
-//        cell.contact = data?.person
+        //        cell.contact = data?.person
         cell.indexPerson = indexPath.row
         cell.delegate = self
         //cleaning stackView to reuse it

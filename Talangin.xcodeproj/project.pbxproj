@@ -32,6 +32,12 @@
 		E6A8AEBA281AA338004AD696 /* DetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A8AEB9281AA338004AD696 /* DetailViewCell.swift */; };
 		E6A8AEC1281B074F004AD696 /* DetailTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A8AEBF281B074F004AD696 /* DetailTransactionView.swift */; };
 		E6A8AEC2281B074F004AD696 /* DetailTransactionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6A8AEC0281B074F004AD696 /* DetailTransactionView.xib */; };
+		E6C4188C2827A3AB001364F3 /* Transactions+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C418862827A3AB001364F3 /* Transactions+CoreDataClass.swift */; };
+		E6C4188D2827A3AB001364F3 /* Transactions+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C418872827A3AB001364F3 /* Transactions+CoreDataProperties.swift */; };
+		E6C4188E2827A3AB001364F3 /* Orders+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C418882827A3AB001364F3 /* Orders+CoreDataClass.swift */; };
+		E6C4188F2827A3AB001364F3 /* Orders+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C418892827A3AB001364F3 /* Orders+CoreDataProperties.swift */; };
+		E6C418902827A3AB001364F3 /* PersonOrders+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C4188A2827A3AB001364F3 /* PersonOrders+CoreDataClass.swift */; };
+		E6C418912827A3AB001364F3 /* PersonOrders+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C4188B2827A3AB001364F3 /* PersonOrders+CoreDataProperties.swift */; };
 		E6CE33872824C1B7003E118C /* Talangin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E6CE33852824C1B7003E118C /* Talangin.xcdatamodeld */; };
 		E6D3093C281920ED00A20A5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D3093B281920ED00A20A5E /* AppDelegate.swift */; };
 		E6D3093E281920ED00A20A5E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D3093D281920ED00A20A5E /* SceneDelegate.swift */; };
@@ -94,6 +100,12 @@
 		E6A8AEB9281AA338004AD696 /* DetailViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewCell.swift; sourceTree = "<group>"; };
 		E6A8AEBF281B074F004AD696 /* DetailTransactionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTransactionView.swift; sourceTree = "<group>"; };
 		E6A8AEC0281B074F004AD696 /* DetailTransactionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailTransactionView.xib; sourceTree = "<group>"; };
+		E6C418862827A3AB001364F3 /* Transactions+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transactions+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E6C418872827A3AB001364F3 /* Transactions+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transactions+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E6C418882827A3AB001364F3 /* Orders+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Orders+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E6C418892827A3AB001364F3 /* Orders+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Orders+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E6C4188A2827A3AB001364F3 /* PersonOrders+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonOrders+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E6C4188B2827A3AB001364F3 /* PersonOrders+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonOrders+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E6CE33862824C1B7003E118C /* Talangin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Talangin.xcdatamodel; sourceTree = "<group>"; };
 		E6D30938281920ED00A20A5E /* Talangin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Talangin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6D3093B281920ED00A20A5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -212,6 +224,12 @@
 		E6D3092F281920ED00A20A5E = {
 			isa = PBXGroup;
 			children = (
+				E6C418862827A3AB001364F3 /* Transactions+CoreDataClass.swift */,
+				E6C418872827A3AB001364F3 /* Transactions+CoreDataProperties.swift */,
+				E6C418882827A3AB001364F3 /* Orders+CoreDataClass.swift */,
+				E6C418892827A3AB001364F3 /* Orders+CoreDataProperties.swift */,
+				E6C4188A2827A3AB001364F3 /* PersonOrders+CoreDataClass.swift */,
+				E6C4188B2827A3AB001364F3 /* PersonOrders+CoreDataProperties.swift */,
 				E63FF64E2824F57E00DD0E86 /* People+CoreDataClass.swift */,
 				E63FF64F2824F57E00DD0E86 /* People+CoreDataProperties.swift */,
 				E6D3093A281920ED00A20A5E /* Talangin */,
@@ -433,6 +451,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E61039C12821674F00B19EDB /* MemberOrder.swift in Sources */,
+				E6C4188D2827A3AB001364F3 /* Transactions+CoreDataProperties.swift in Sources */,
+				E6C418902827A3AB001364F3 /* PersonOrders+CoreDataClass.swift in Sources */,
 				E61039BF2821674F00B19EDB /* MemberOrderTransactionView.swift in Sources */,
 				E6471123281BCFE10058E649 /* NewTransactionView.swift in Sources */,
 				E61039BA28215DDE00B19EDB /* NewTransactionController.swift in Sources */,
@@ -441,10 +461,12 @@
 				E63FF6502824F57E00DD0E86 /* People+CoreDataClass.swift in Sources */,
 				E6D30940281920ED00A20A5E /* TransactionController.swift in Sources */,
 				E6D309712819268700A20A5E /* Contact.swift in Sources */,
+				E6C418912827A3AB001364F3 /* PersonOrders+CoreDataProperties.swift in Sources */,
 				E6471120281BBAAB0058E649 /* TransactionView.swift in Sources */,
 				E63FF6512824F57E00DD0E86 /* People+CoreDataProperties.swift in Sources */,
 				E6A8AEBA281AA338004AD696 /* DetailViewCell.swift in Sources */,
 				E6D3093C281920ED00A20A5E /* AppDelegate.swift in Sources */,
+				E6C4188F2827A3AB001364F3 /* Orders+CoreDataProperties.swift in Sources */,
 				E6965A8628240F9800EB836A /* SelectOrderController.swift in Sources */,
 				E61039CE28216A6400B19EDB /* MemberOrderTransactionController.swift in Sources */,
 				E6D309722819268700A20A5E /* DetailViewController.swift in Sources */,
@@ -452,8 +474,10 @@
 				E6A8AEC1281B074F004AD696 /* DetailTransactionView.swift in Sources */,
 				E6D3093E281920ED00A20A5E /* SceneDelegate.swift in Sources */,
 				E6D309702819268700A20A5E /* ContactViewController.swift in Sources */,
+				E6C4188C2827A3AB001364F3 /* Transactions+CoreDataClass.swift in Sources */,
 				E6965A8728240F9800EB836A /* SelectOrderView.swift in Sources */,
 				E6D309742819268700A20A5E /* ContactCell.swift in Sources */,
+				E6C4188E2827A3AB001364F3 /* Orders+CoreDataClass.swift in Sources */,
 				E6A8AEAE281A8A71004AD696 /* TransactionCell.swift in Sources */,
 				E61039CC28216A5900B19EDB /* MemberTransactionController.swift in Sources */,
 				E6D309732819268700A20A5E /* UIButton+Extension.swift in Sources */,

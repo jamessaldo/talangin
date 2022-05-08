@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController, DetailViewControllerDelegate, NewTransactionControllerDelegate {
     
@@ -19,64 +20,50 @@ class ViewController: UIViewController, DetailViewControllerDelegate, NewTransac
     }
     
     // MARK: - Object initialization & Optional
-    var transactionLists: [TransactionModel] = [
-        TransactionModel(
-            title: "Bukber BSD",
-            amount: 200000,
-            date: Date(),
-            personsOrders: [
-                PersonsOrdersModel(
-                    person: ContactModel(
-                        name: "Ghozy Ghulamul Afif",
-                        email: "ghozyghlmlaff@gmail.com"),
-                    total: 100000,
-                    orders: [
-                        OrderModel(
-                            name: "Ramen Reguler Ikkudo Ichi",
-                            quantity: 2,
-                            price: 70000,
-                            amount: 140000),
-                        OrderModel(
-                            name: "Josu Ikkudo Ichi",
-                            quantity: 2,
-                            price: 30000,
-                            amount: 60000)
-                    ]),
-                PersonsOrdersModel(
-                    person: ContactModel(
-                        name: "Rizky Febian",
-                        email: "rizkysr19@gmail.com"),
-                    total: 100000,
-                    orders: [
-                        OrderModel(
-                            name: "Ramen Reguler Ikkudo Ichi",
-                            quantity: 2,
-                            price: 70000,
-                            amount: 140000),
-                        OrderModel(
-                            name: "Josu Ikkudo Ichi",
-                            quantity: 2,
-                            price: 30000,
-                            amount: 60000)
-                    ])],
-            orders: [
-                OrderModel(
-                    name: "Ramen Reguler Ikkudo Ichi",
-                    quantity: 2,
-                    price: 70000,
-                    amount: 140000,
-                    totalMember: 2),
-                OrderModel(
-                    name: "Josu Ikkudo Ichi",
-                    quantity: 2,
-                    price: 30000,
-                    amount: 60000,
-                    totalMember: 2)
-            ])
-    ]
+    var transactionLists: [TransactionModel] = []
     var selectedRow: TransactionModel?
     
     // MARK: - View Life Cycle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        //        let fetchRequest = NSFetchRequest<People>(entityName: "People")
+        
+        do {
+            let transactions = try managedObjectContext.fetch(Transactions.fetchRequest())
+            for t in transactions {
+                var data: TransactionModel = TransactionModel()
+                data.title = t.title ?? ""
+                data.amount = t.amount 
+                data.date = t.date ?? Date()
+                let orders = t.orders?.allObjects as! [Orders]
+                var ordersData: [OrderModel] = []
+                for o in orders {
+                    ordersData.append(OrderModel(name: o.name ?? "", quantity: Int(o.quantity) , price: o.price , amount: Float(o.amount) , totalMember: Int(o.totalMembers)))
+                }
+                data.orders = ordersData
+                let personOrders = t.personOrders?.allObjects as! [PersonOrders]
+                var personOrdersData: [PersonsOrdersModel] = []
+                for po in personOrders {
+                    let orders = po.orders?.allObjects as! [Orders]
+                    var ordersData: [OrderModel] = []
+                    for o in orders {
+                        ordersData.append(OrderModel(name: o.name ?? "", quantity: Int(o.quantity) , price: o.price , amount: Float(o.amount) , totalMember: Int(o.totalMembers)))
+                    }
+                    let contact = ContactModel(name: po.person?.name ?? "", email: po.person?.email ?? "")
+                    personOrdersData.append(PersonsOrdersModel(person: contact, total: po.total, orders: ordersData))
+                }
+                data.personsOrders = personOrdersData
+                transactionLists.append(data)
+            }
+        } catch let error as NSError {
+            print(error)
+            print("error while fetching data in core data!")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib = UINib(nibName: "TransactionCell", bundle: nil)
